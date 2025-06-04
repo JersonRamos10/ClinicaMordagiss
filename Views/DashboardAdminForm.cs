@@ -57,7 +57,9 @@ namespace SistemaDeCitasMordagiss.Views
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
+            var login = new LoginForm();
+            login.Show();
         }
     }
 }

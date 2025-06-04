@@ -28,57 +28,163 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lblBienvenida = new Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardMedicoForm));
+            lblFechaHoraActual = new Label();
+            lblBienvenidoMedico = new Label();
+            btnCerrarSesionMedico = new Button();
+            pictureBox3 = new PictureBox();
+            lkAgenda = new LinkLabel();
             lblRol = new Label();
-            btnCerrarSesion = new Button();
+            panel1 = new Panel();
+            dgvCitasMedico = new DataGridView();
+            lblTituloAgenda = new Label();
+            dtpSeleccionFechaCitas = new DateTimePicker();
+            lblErrorMedico = new Label();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvCitasMedico).BeginInit();
             SuspendLayout();
             // 
-            // lblBienvenida
+            // lblFechaHoraActual
             // 
-            lblBienvenida.AutoSize = true;
-            lblBienvenida.Location = new Point(96, 128);
-            lblBienvenida.Name = "lblBienvenida";
-            lblBienvenida.Size = new Size(38, 15);
-            lblBienvenida.TabIndex = 0;
-            lblBienvenida.Text = "label1";
+            lblFechaHoraActual.AutoSize = true;
+            lblFechaHoraActual.Location = new Point(248, 61);
+            lblFechaHoraActual.Name = "lblFechaHoraActual";
+            lblFechaHoraActual.Size = new Size(38, 15);
+            lblFechaHoraActual.TabIndex = 0;
+            lblFechaHoraActual.Text = "label1";
+            // 
+            // lblBienvenidoMedico
+            // 
+            lblBienvenidoMedico.AutoSize = true;
+            lblBienvenidoMedico.Location = new Point(248, 29);
+            lblBienvenidoMedico.Name = "lblBienvenidoMedico";
+            lblBienvenidoMedico.Size = new Size(65, 15);
+            lblBienvenidoMedico.TabIndex = 1;
+            lblBienvenidoMedico.Text = "Bienvenida";
+            // 
+            // btnCerrarSesionMedico
+            // 
+            btnCerrarSesionMedico.Location = new Point(679, 29);
+            btnCerrarSesionMedico.Name = "btnCerrarSesionMedico";
+            btnCerrarSesionMedico.Size = new Size(92, 30);
+            btnCerrarSesionMedico.TabIndex = 2;
+            btnCerrarSesionMedico.Text = "Cerrar Sesion";
+            btnCerrarSesionMedico.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(45, 32);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(94, 87);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox3.TabIndex = 12;
+            pictureBox3.TabStop = false;
+            // 
+            // lkAgenda
+            // 
+            lkAgenda.AutoSize = true;
+            lkAgenda.Location = new Point(45, 249);
+            lkAgenda.Name = "lkAgenda";
+            lkAgenda.Size = new Size(116, 15);
+            lkAgenda.TabIndex = 16;
+            lkAgenda.TabStop = true;
+            lkAgenda.Text = "Consutar Mi Agenda";
             // 
             // lblRol
             // 
             lblRol.AutoSize = true;
-            lblRol.Location = new Point(70, 265);
+            lblRol.Location = new Point(45, 140);
             lblRol.Name = "lblRol";
-            lblRol.Size = new Size(38, 15);
-            lblRol.TabIndex = 1;
-            lblRol.Text = "label1";
+            lblRol.Size = new Size(24, 15);
+            lblRol.TabIndex = 11;
+            lblRol.Text = "Rol";
             // 
-            // btnCerrarSesion
+            // panel1
             // 
-            btnCerrarSesion.Location = new Point(161, 324);
-            btnCerrarSesion.Name = "btnCerrarSesion";
-            btnCerrarSesion.Size = new Size(75, 23);
-            btnCerrarSesion.TabIndex = 2;
-            btnCerrarSesion.Text = "button1";
-            btnCerrarSesion.UseVisualStyleBackColor = true;
+            panel1.Controls.Add(lkAgenda);
+            panel1.Controls.Add(pictureBox3);
+            panel1.Controls.Add(lblRol);
+            panel1.Location = new Point(1, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(204, 451);
+            panel1.TabIndex = 17;
+            // 
+            // dgvCitasMedico
+            // 
+            dgvCitasMedico.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvCitasMedico.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvCitasMedico.Location = new Point(248, 140);
+            dgvCitasMedico.Name = "dgvCitasMedico";
+            dgvCitasMedico.ReadOnly = true;
+            dgvCitasMedico.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvCitasMedico.Size = new Size(523, 192);
+            dgvCitasMedico.TabIndex = 18;
+            // 
+            // lblTituloAgenda
+            // 
+            lblTituloAgenda.AutoSize = true;
+            lblTituloAgenda.Location = new Point(248, 109);
+            lblTituloAgenda.Name = "lblTituloAgenda";
+            lblTituloAgenda.Size = new Size(38, 15);
+            lblTituloAgenda.TabIndex = 19;
+            lblTituloAgenda.Text = "label1";
+            // 
+            // dtpSeleccionFechaCitas
+            // 
+            dtpSeleccionFechaCitas.Format = DateTimePickerFormat.Short;
+            dtpSeleccionFechaCitas.Location = new Point(248, 355);
+            dtpSeleccionFechaCitas.Name = "dtpSeleccionFechaCitas";
+            dtpSeleccionFechaCitas.Size = new Size(200, 23);
+            dtpSeleccionFechaCitas.TabIndex = 20;
+            dtpSeleccionFechaCitas.Value = new DateTime(2025, 6, 4, 9, 55, 16, 0);
+            // 
+            // lblErrorMedico
+            // 
+            lblErrorMedico.AutoSize = true;
+            lblErrorMedico.Location = new Point(248, 397);
+            lblErrorMedico.Name = "lblErrorMedico";
+            lblErrorMedico.Size = new Size(38, 15);
+            lblErrorMedico.TabIndex = 21;
+            lblErrorMedico.Text = "label1";
             // 
             // DashboardMedicoForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(btnCerrarSesion);
-            Controls.Add(lblRol);
-            Controls.Add(lblBienvenida);
+            Controls.Add(lblErrorMedico);
+            Controls.Add(dtpSeleccionFechaCitas);
+            Controls.Add(lblTituloAgenda);
+            Controls.Add(lblBienvenidoMedico);
+            Controls.Add(dgvCitasMedico);
+            Controls.Add(btnCerrarSesionMedico);
+            Controls.Add(lblFechaHoraActual);
+            Controls.Add(panel1);
             Name = "DashboardMedicoForm";
             Text = "DashboardMedicoForm";
             Load += DashboardMedicoForm_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvCitasMedico).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label lblBienvenida;
+        private Label lblFechaHoraActual;
+        private Label lblBienvenidoMedico;
+        private Button btnCerrarSesionMedico;
+        private PictureBox pictureBox3;
+        private LinkLabel lkAgenda;
         private Label lblRol;
-        private Button btnCerrarSesion;
+        private Panel panel1;
+        private DataGridView dgvCitasMedico;
+        private Label lblTituloAgenda;
+        private DateTimePicker dtpSeleccionFechaCitas;
+        private Label lblErrorMedico;
     }
 }

@@ -80,7 +80,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
             public int? Valor { get; set; }
 
             public override string ToString()
-                => Texto ?? string.Empty;   // Esto es lo que el ComboBox mostrará
+                => Texto ?? string.Empty;   
         }
 
         private void GenerarReporte()

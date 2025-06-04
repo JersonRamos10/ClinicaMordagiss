@@ -10,7 +10,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
     public partial class EditarUsuarioForm : Form
     {
         private readonly UsuarioRepo _repo = new();
-        private UsuarioSistema? _usuarioOriginal;          
+        private UsuarioSistema? _usuarioOriginal;
         private readonly Color _colorNormal;
 
         public EditarUsuarioForm()
@@ -19,7 +19,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
 
             _colorNormal = lblError.ForeColor;
 
-        //valores del combobox
+            // Valores del combo de roles
             cmbRol.Items.AddRange(
                 new[] { "Administrador", "Secretaria", "ProfesionalMedico" });
             cmbRol.SelectedIndex = 0;
@@ -28,20 +28,18 @@ namespace SistemaDeCitasMordagiss.Views.Admin
             btnCancelar.Click += (s, e) => Close();
         }
 
-       
         public EditarUsuarioForm(UsuarioSistema usuarioAEditar) : this()
         {
             _usuarioOriginal = usuarioAEditar;
 
-            // cargar datos en controles
+            // Cargar datos en los controles
             txtNombre.Text = usuarioAEditar.NombreCompleto;
             txtUsuario.Text = usuarioAEditar.NombreUsuario;
             cmbRol.SelectedItem = usuarioAEditar.Rol;
             chkActivo.Checked = usuarioAEditar.Activo.Equals("Si",
-                                           StringComparison.OrdinalIgnoreCase);
+                                       StringComparison.OrdinalIgnoreCase);
 
-
-            //logica de una nueva contraseña
+            // Lógica para habilitar/deshabilitar nueva contraseña
             chkCambiarClave.CheckedChanged += (s, e) =>
             {
                 txtClaveNueva.Enabled = chkCambiarClave.Checked;
@@ -53,10 +51,9 @@ namespace SistemaDeCitasMordagiss.Views.Admin
             };
         }
 
-       
         private void GuardarCambios(object? sender, EventArgs e)
         {
-            if (_usuarioOriginal == null)   
+            if (_usuarioOriginal == null)
             {
                 MessageBox.Show("No se cargó el usuario a editar.",
                                 "Error",
@@ -71,7 +68,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
 
             bool formularioValido = true;
 
-            // Validaciones basicas sobre el contido de los text box
+            // Validaciones básicas
             if (string.IsNullOrWhiteSpace(txtUsuario.Text))
             {
                 ep.SetError(txtUsuario, "Obligatorio");
@@ -89,7 +86,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
                 return;
             }
 
-            // Comprobar duplicado si cambio el nombre de usuario
+            // Comprobar duplicado si cambió el nombre de usuario
             string nuevoUsuario = txtUsuario.Text.Trim();
             bool nombreCambio = !nuevoUsuario.Equals(_usuarioOriginal.NombreUsuario,
                                    StringComparison.OrdinalIgnoreCase);
@@ -123,6 +120,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
                 }
             }
 
+            // Construir el objeto actualizado
             var usuarioActualizado = new UsuarioSistema
             {
                 IdUsuarioSistema = _usuarioOriginal.IdUsuarioSistema,
@@ -130,13 +128,44 @@ namespace SistemaDeCitasMordagiss.Views.Admin
                 NombreUsuario = nuevoUsuario,
                 Rol = cmbRol.Text,
                 Activo = chkActivo.Checked ? "Si" : "No",
-
                 Contrasena = cambiarClave
-             ? txtClaveNueva.Text
-             : _usuarioOriginal.Contrasena,
+                                 ? txtClaveNueva.Text
+                                 : _usuarioOriginal.Contrasena,
             };
 
+            // 1) Actualizar en UsuarioSistema
             _repo.Actualizar(usuarioActualizado);
+
+            // 2) Si es ProfesionalMedico, verificar/insertear ficha en ProfesionalMedico
+            if (usuarioActualizado.Rol.Equals("ProfesionalMedico", StringComparison.OrdinalIgnoreCase))
+            {
+                var medicoRepo = new MedicoRepo();
+                var existeFicha = medicoRepo.TraerPorUsuario(usuarioActualizado.NombreUsuario);
+
+                if (existeFicha == null)
+                {
+                    // Crear nueva ficha en ProfesionalMedico
+                    var nuevoMedico = new ProfesionalMedico
+                    {
+                        Nombre = txtNombre.Text.Trim(),
+                        Apellidos = "",                // Puede ajustarse si tienes un campo Apellidos
+                        Especialidad = "Sin definir",
+                        TelefonoContacto = "",
+                        CorreoElectronico = "",
+                        Activo = "Si",
+                        IdUsuarioSistema = usuarioActualizado.IdUsuarioSistema
+                    };
+                    medicoRepo.Crear(nuevoMedico);
+                }
+                else
+                {
+                    // Si ya existía ficha, actualizamos su estado Activo y NombreCompleto
+                    existeFicha.Nombre = txtNombre.Text.Trim();
+                    // Apellidos y demás campos se mantienen tal como estaban
+                    existeFicha.Activo = usuarioActualizado.Activo;
+                    medicoRepo.Actualizar(existeFicha);
+                }
+            }
 
             MessageBox.Show("Cambios guardados.",
                             "Éxito",

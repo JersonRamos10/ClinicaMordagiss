@@ -1,13 +1,8 @@
 ﻿using SistemaDeCitasMordagiss.Controllers;
+using SistemaDeCitasMordagiss.DataAccess;
 using SistemaDeCitasMordagiss.Models;
+using SistemaDeCitasMordagiss.Views.Admin;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SistemaDeCitasMordagiss.Views
@@ -17,11 +12,13 @@ namespace SistemaDeCitasMordagiss.Views
         public LoginForm()
         {
             InitializeComponent();
+            btnIniciarSesion.Click += btnIniciarSesion_Click;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
-            string nombreUsuario = txtNombreUsuario.Text.Trim();
+            // Leer y normalizar inputs
+            string nombreUsuario = txtNombreUsuario.Text.Trim().ToLower();
             string contrasena = txtContrasena.Text.Trim();
 
             if (string.IsNullOrEmpty(nombreUsuario) || string.IsNullOrEmpty(contrasena))
@@ -35,44 +32,87 @@ namespace SistemaDeCitasMordagiss.Views
                 return;
             }
 
-            UsuarioSistema user = AuthController.Authenticate(nombreUsuario, contrasena);
-            if (user == null)
+            try
             {
-                MessageBox.Show(
-                    "Usuario o contraseña incorrectos, o cuenta inactiva.",
-                    "Error de autenticación",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error
-                );
-                return;
-            }
-
-            Form dashboard;
-            switch (user.Rol)
-            {
-                case "Administrador":
-                    dashboard = new DashboardAdminForm(user);
-                    break;
-                case "Secretaria":
-                    dashboard = new DashboardSecretariaForm(user);
-                    break;
-                case "ProfesionalMedico":
-                    dashboard = new DashboardMedicoForm(user);
-                    break;
-                default:
+                // Autenticar con AuthController (usa UsuarioRepo internamente)
+                UsuarioSistema? user = AuthController.Authenticate(nombreUsuario, contrasena);
+                if (user == null)
+                {
                     MessageBox.Show(
-                        "Rol de usuario no reconocido.",
-                        "Error de rol",
+                        "Usuario o contraseña incorrectos.",
+                        "Error de autenticación",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error
                     );
                     return;
-            }
+                }
 
-            this.Hide();
-            dashboard.FormClosed += (s, args) => this.Show();
-            dashboard.Show();
-        
+                // Validar si la cuenta está activa
+                if (user.Activo.Equals("no", StringComparison.OrdinalIgnoreCase))
+                {
+                    MessageBox.Show(
+                        "La cuenta está inactiva. Consulta con el administrador.",
+                        "Cuenta inactiva",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+                    return;
+                }
+
+                // Abrir el form correspondiente según el rol
+                switch (user.Rol)
+                {
+                    case "Administrador":
+                        this.Hide();
+                        new DashboardAdminForm(user).Show();
+                        break;
+
+                    case "Secretaria":
+                        this.Hide();
+                        new DashboardSecretariaForm(user).Show();
+                        break;
+
+                    case "ProfesionalMedico":
+
+                        // Buscar ficha clinica
+                        var medicoRepo = new MedicoRepo();
+                        ProfesionalMedico? profesional =
+                            medicoRepo.TraerPorUsuario(user.NombreUsuario);
+
+                        if (profesional == null)
+                        {
+                            MessageBox.Show(
+                                "No se encontró ficha médica para este usuario.",
+                                "Error",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error
+                            );
+                            return;
+                        }
+
+                        this.Hide();
+                        new DashboardMedicoForm(profesional, user.Rol).Show();
+                        break;
+
+                    default:
+                        MessageBox.Show(
+                            "Rol de usuario no reconocido.",
+                            "Error de rol",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error
+                        );
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    $"Ocurrió un error al intentar iniciar sesión:\n{ex.Message}",
+                    "Error inesperado",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
         }
     }
 }

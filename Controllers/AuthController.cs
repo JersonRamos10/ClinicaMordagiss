@@ -8,12 +8,14 @@ using System.Threading.Tasks;
 
 namespace SistemaDeCitasMordagiss.Controllers
 {
-   class AuthController
+    public class AuthController
     {
-        public static UsuarioSistema Authenticate(string nombreUsuario, string contrasenaPlain)
+        //Intenta autenticar al usuario dado (nombreUsuario + contrasenaPlain)
+        public static UsuarioSistema? Authenticate(string nombreUsuario, string contrasenaPlain)
         {
-            var repo = new UsuarioSistemaRepository();
+            var repo = new UsuarioRepo();
             return repo.GetByNombreUsuarioAndContrasena(nombreUsuario, contrasenaPlain);
         }
     }
 }
+

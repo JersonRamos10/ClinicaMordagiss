@@ -24,8 +24,9 @@ namespace SistemaDeCitasMordagiss.Views.Admin
             InitializeComponent();
 
             // llenar combo de roles
-            cmbRol.Items.AddRange(new[] { "Administrador", "Secretaria", "ProfesionalMedico" });
-       
+            cmbRol.Items.Add("Administrador");
+            cmbRol.Items.Add("Secretaria");
+            cmbRol.Items.Add("ProfesionalMedico");
             cmbRol.SelectedIndex = 0;
 
             // eventos
@@ -88,18 +89,38 @@ namespace SistemaDeCitasMordagiss.Views.Admin
                 return;
             }
 
-            // crear objeto y grabar
-            var nuevo = new UsuarioSistema
+           // Insertar en UsuarioSistema y obtener el Id
+            var nuevoUsuario = new UsuarioSistema
             {
                 NombreCompleto = txtNombre.Text.Trim(),
-                NombreUsuario = txtUsuario.Text.Trim(),
+                NombreUsuario = txtUsuario.Text.Trim().ToLower(),
                 Contrasena = txtClave.Text,
-                Rol = cmbRol.Text,
+                Rol = cmbRol.Text,   // debe ser exactamente “ProfesionalMedico” si aplica
                 Activo = chkActivo.Checked ? "si" : "no"
             };
+            int idNuevoUsuario = _repo.CrearYRetornarId(nuevoUsuario);
 
-           
-            _repo.Crear(nuevo); // actualizar la tabla (grilla)
+
+            if (cmbRol.Text.Equals("ProfesionalMedico", StringComparison.OrdinalIgnoreCase))
+            {
+                var medicoRepo = new MedicoRepo();
+
+                // Llenar datos mínimos para ProfesionalMedico
+                var nuevoMedico = new ProfesionalMedico
+                {
+                    Nombre = txtNombre.Text.Trim(),
+                    Apellidos = "",               // o bien separar nombre completo en dos campos
+                    Especialidad = "Sin definir",
+                    TelefonoContacto = "",
+                    CorreoElectronico = "",
+                    Activo = "si",
+                    IdUsuarioSistema = idNuevoUsuario
+                };
+
+                medicoRepo.Crear(nuevoMedico);
+            }
+
+            
             Close();   
         }
 

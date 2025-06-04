@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             pictureBox1 = new PictureBox();
-            button1 = new Button();
+            btnIniciarSesion = new Button();
             txtContrasena = new TextBox();
             txtNombreUsuario = new TextBox();
             label1 = new Label();
@@ -51,18 +51,17 @@
             pictureBox1.TabIndex = 13;
             pictureBox1.TabStop = false;
             // 
-            // button1
+            // btnIniciarSesion
             // 
-            button1.BackColor = SystemColors.Highlight;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.ForeColor = SystemColors.Control;
-            button1.Location = new Point(152, 356);
-            button1.Name = "button1";
-            button1.Size = new Size(96, 32);
-            button1.TabIndex = 10;
-            button1.Text = "Acceder";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            btnIniciarSesion.BackColor = SystemColors.Highlight;
+            btnIniciarSesion.FlatStyle = FlatStyle.Flat;
+            btnIniciarSesion.ForeColor = SystemColors.Control;
+            btnIniciarSesion.Location = new Point(152, 356);
+            btnIniciarSesion.Name = "btnIniciarSesion";
+            btnIniciarSesion.Size = new Size(96, 32);
+            btnIniciarSesion.TabIndex = 10;
+            btnIniciarSesion.Text = "Acceder";
+            btnIniciarSesion.UseVisualStyleBackColor = false;
             // 
             // txtContrasena
             // 
@@ -122,7 +121,7 @@
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
-            Controls.Add(button1);
+            Controls.Add(btnIniciarSesion);
             Controls.Add(txtContrasena);
             Controls.Add(txtNombreUsuario);
             Controls.Add(label1);
@@ -139,7 +138,7 @@
         #endregion
 
         private PictureBox pictureBox1;
-        private Button button1;
+        private Button btnIniciarSesion;
         private TextBox txtContrasena;
         private TextBox txtNombreUsuario;
         private Label label1;
