@@ -1,0 +1,22 @@
+# Ignorar carpetas y archivos temporales de VS
+
+# Carpeta de compilación
+bin/
+obj/
+
+# Archivos de usuario de Visual Studio
+*.user
+*.suo
+*.userosscache
+
+# Carpeta oculta de VS
+.vs/
+
+# Paquetes NuGet (no subir la carpeta packages/)
+packages/
+
+# Archivos de base de datos en caché (opcional)
+*.db-journal
+
+# Archivos de configuración de despliegue
+*.Publish.xml
