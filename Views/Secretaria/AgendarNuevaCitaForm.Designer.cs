@@ -56,15 +56,19 @@
             // 
             // btnAgendarCita
             // 
+            btnAgendarCita.BackColor = SystemColors.HotTrack;
+            btnAgendarCita.FlatStyle = FlatStyle.Flat;
+            btnAgendarCita.ForeColor = SystemColors.ControlLightLight;
             btnAgendarCita.Location = new Point(294, 524);
             btnAgendarCita.Name = "btnAgendarCita";
             btnAgendarCita.Size = new Size(96, 33);
             btnAgendarCita.TabIndex = 23;
             btnAgendarCita.Text = "Agendar Cita";
-            btnAgendarCita.UseVisualStyleBackColor = true;
+            btnAgendarCita.UseVisualStyleBackColor = false;
             // 
             // btnCancelarCita
             // 
+            btnCancelarCita.FlatStyle = FlatStyle.Flat;
             btnCancelarCita.Location = new Point(189, 524);
             btnCancelarCita.Name = "btnCancelarCita";
             btnCancelarCita.Size = new Size(84, 33);
@@ -75,9 +79,10 @@
             // label5
             // 
             label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             label5.Location = new Point(21, 440);
             label5.Name = "label5";
-            label5.Size = new Size(98, 15);
+            label5.Size = new Size(101, 15);
             label5.TabIndex = 20;
             label5.Text = "Hora Disponible: \r\n";
             // 
@@ -93,9 +98,10 @@
             // lblMensajeExito
             // 
             lblMensajeExito.AutoSize = true;
+            lblMensajeExito.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblMensajeExito.Location = new Point(3, 38);
             lblMensajeExito.Name = "lblMensajeExito";
-            lblMensajeExito.Size = new Size(158, 15);
+            lblMensajeExito.Size = new Size(165, 15);
             lblMensajeExito.TabIndex = 18;
             lblMensajeExito.Text = "Cita Agendada Exitosamente";
             // 
@@ -117,36 +123,40 @@
             // lblUsuario
             // 
             lblUsuario.AutoSize = true;
+            lblUsuario.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblUsuario.Location = new Point(21, 172);
             lblUsuario.Name = "lblUsuario";
-            lblUsuario.Size = new Size(131, 15);
+            lblUsuario.Size = new Size(137, 15);
             lblUsuario.TabIndex = 14;
             lblUsuario.Text = "Paciente Seleccionado: ";
             // 
             // lblClave
             // 
             lblClave.AutoSize = true;
+            lblClave.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblClave.Location = new Point(21, 226);
             lblClave.Name = "lblClave";
-            lblClave.Size = new Size(62, 15);
+            lblClave.Size = new Size(66, 15);
             lblClave.TabIndex = 13;
             lblClave.Text = "* Servicio: ";
             // 
             // lblNombre
             // 
             lblNombre.AutoSize = true;
+            lblNombre.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblNombre.Location = new Point(19, 23);
             lblNombre.Name = "lblNombre";
-            lblNombre.Size = new Size(283, 15);
+            lblNombre.Size = new Size(297, 15);
             lblNombre.TabIndex = 12;
             lblNombre.Text = "Buscar Paciente (Nombre, Apellido, Identidad (DUI): \r\n";
             // 
             // lblResultadoBusqueda
             // 
             lblResultadoBusqueda.AutoSize = true;
+            lblResultadoBusqueda.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblResultadoBusqueda.Location = new Point(21, 87);
             lblResultadoBusqueda.Name = "lblResultadoBusqueda";
-            lblResultadoBusqueda.Size = new Size(125, 15);
+            lblResultadoBusqueda.Size = new Size(132, 15);
             lblResultadoBusqueda.TabIndex = 24;
             lblResultadoBusqueda.Text = "ResultadoDeBusqueda";
             // 
@@ -173,9 +183,10 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             label2.Location = new Point(21, 289);
             label2.Name = "label2";
-            label2.Size = new Size(53, 15);
+            label2.Size = new Size(54, 15);
             label2.TabIndex = 27;
             label2.Text = "Medico: ";
             // 
@@ -191,9 +202,10 @@
             // label3
             // 
             label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             label3.Location = new Point(19, 361);
             label3.Name = "label3";
-            label3.Size = new Size(96, 15);
+            label3.Size = new Size(98, 15);
             label3.TabIndex = 29;
             label3.Text = "Fecha de la Cita: ";
             // 
@@ -220,28 +232,35 @@
             // 
             // btnImprimirBoleta
             // 
+            btnImprimirBoleta.BackColor = SystemColors.HotTrack;
+            btnImprimirBoleta.FlatStyle = FlatStyle.Flat;
+            btnImprimirBoleta.ForeColor = SystemColors.ControlLightLight;
             btnImprimirBoleta.Location = new Point(191, 142);
             btnImprimirBoleta.Name = "btnImprimirBoleta";
             btnImprimirBoleta.Size = new Size(82, 33);
             btnImprimirBoleta.TabIndex = 32;
             btnImprimirBoleta.Text = "Imprimir";
-            btnImprimirBoleta.UseVisualStyleBackColor = true;
+            btnImprimirBoleta.UseVisualStyleBackColor = false;
             // 
             // btnDescargarBoleta
             // 
+            btnDescargarBoleta.BackColor = SystemColors.HotTrack;
+            btnDescargarBoleta.FlatStyle = FlatStyle.Flat;
+            btnDescargarBoleta.ForeColor = SystemColors.ButtonHighlight;
             btnDescargarBoleta.Location = new Point(294, 142);
             btnDescargarBoleta.Name = "btnDescargarBoleta";
             btnDescargarBoleta.Size = new Size(96, 33);
             btnDescargarBoleta.TabIndex = 32;
             btnDescargarBoleta.Text = "Descargar PDF";
-            btnDescargarBoleta.UseVisualStyleBackColor = true;
+            btnDescargarBoleta.UseVisualStyleBackColor = false;
             // 
             // lblBoletaTitulo
             // 
             lblBoletaTitulo.AutoSize = true;
+            lblBoletaTitulo.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblBoletaTitulo.Location = new Point(3, 77);
             lblBoletaTitulo.Name = "lblBoletaTitulo";
-            lblBoletaTitulo.Size = new Size(213, 15);
+            lblBoletaTitulo.Size = new Size(224, 15);
             lblBoletaTitulo.TabIndex = 19;
             lblBoletaTitulo.Text = "Boleta de cita para [Nombre Paciente]: \r\n";
             // 
@@ -266,6 +285,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(410, 792);
             Controls.Add(lblSinDisponibilidad);
             Controls.Add(btnBuscarPaciente);

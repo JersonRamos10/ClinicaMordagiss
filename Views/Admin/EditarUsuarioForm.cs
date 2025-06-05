@@ -39,7 +39,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
             chkActivo.Checked = usuarioAEditar.Activo.Equals("Si",
                                        StringComparison.OrdinalIgnoreCase);
 
-            // Lógica para habilitar/deshabilitar nueva contraseña
+            // Logica para habilitar/deshabilitar nueva contraseña
             chkCambiarClave.CheckedChanged += (s, e) =>
             {
                 txtClaveNueva.Enabled = chkCambiarClave.Checked;
@@ -68,7 +68,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
 
             bool formularioValido = true;
 
-            // Validaciones básicas
+            // Validaciones basicas
             if (string.IsNullOrWhiteSpace(txtUsuario.Text))
             {
                 ep.SetError(txtUsuario, "Obligatorio");
@@ -86,7 +86,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
                 return;
             }
 
-            // Comprobar duplicado si cambió el nombre de usuario
+          
             string nuevoUsuario = txtUsuario.Text.Trim();
             bool nombreCambio = !nuevoUsuario.Equals(_usuarioOriginal.NombreUsuario,
                                    StringComparison.OrdinalIgnoreCase);
@@ -134,10 +134,10 @@ namespace SistemaDeCitasMordagiss.Views.Admin
                                  : _usuarioOriginal.Contrasena,
             };
 
-            // 1) Actualizar en UsuarioSistema
+            //  Actualizar en UsuarioSistema
             _repo.Actualizar(usuarioActualizado);
 
-            // 2) Si es ProfesionalMedico, verificar/insertear ficha en ProfesionalMedico
+            
             if (usuarioActualizado.Rol.Equals("ProfesionalMedico", StringComparison.OrdinalIgnoreCase))
             {
                 var medicoRepo = new MedicoRepo();
@@ -149,7 +149,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
                     var nuevoMedico = new ProfesionalMedico
                     {
                         Nombre = txtNombre.Text.Trim(),
-                        Apellidos = "",                // Puede ajustarse si tienes un campo Apellidos
+                        Apellidos = "",                
                         Especialidad = "Sin definir",
                         TelefonoContacto = "",
                         CorreoElectronico = "",
@@ -160,9 +160,9 @@ namespace SistemaDeCitasMordagiss.Views.Admin
                 }
                 else
                 {
-                    // Si ya existía ficha, actualizamos su estado Activo y NombreCompleto
+               
                     existeFicha.Nombre = txtNombre.Text.Trim();
-                    // Apellidos y demás campos se mantienen tal como estaban
+                   
                     existeFicha.Activo = usuarioActualizado.Activo;
                     medicoRepo.Actualizar(existeFicha);
                 }

@@ -47,7 +47,7 @@ namespace SistemaDeCitasMordagiss.Views
                     return;
                 }
 
-                // Validar si la cuenta está activa
+                // esta condicion es para Validar si la cuenta esta activa
                 if (user.Activo.Equals("no", StringComparison.OrdinalIgnoreCase))
                 {
                     MessageBox.Show(
@@ -74,7 +74,7 @@ namespace SistemaDeCitasMordagiss.Views
 
                     case "ProfesionalMedico":
 
-                        // Buscar ficha clinica
+                        
                         var medicoRepo = new MedicoRepo();
                         ProfesionalMedico? profesional =
                             medicoRepo.TraerPorUsuario(user.NombreUsuario);

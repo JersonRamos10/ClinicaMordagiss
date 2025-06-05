@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Windows.Forms;
 using SistemaDeCitasMordagiss.Models;
-using SistemaDeCitasMordagiss.Views.Secretaria; // Asegúrate que aquí estén los nombres de los UserControls
+using SistemaDeCitasMordagiss.Views.Secretaria; 
 
 namespace SistemaDeCitasMordagiss.Views
 {
     public partial class DashboardSecretariaForm : Form
     {
-       
+
         private readonly UsuarioSistema _usuarioLogueado;
 
-        public DashboardSecretariaForm(UsuarioSistema  usuarioLogueado)
+        public DashboardSecretariaForm(UsuarioSistema usuarioLogueado)
         {
             InitializeComponent();
 
@@ -31,7 +31,7 @@ namespace SistemaDeCitasMordagiss.Views
                 login.Show();
             };
 
-           
+
         }
         public UsuarioSistema ObtenerUsuarioActual()
         {
@@ -40,7 +40,7 @@ namespace SistemaDeCitasMordagiss.Views
 
         private void DashboardSecretariaForm_Load(object sender, EventArgs e)
         {
-            // Ahora uso _usuarioLogueado, no _usuarioActual
+
             lblBienvenidaSecretaria.Text = $"Bienvenida, {_usuarioLogueado.NombreCompleto}";
             lblRolSecretaria.Text = $"Rol: {_usuarioLogueado.Rol}";
             lblFechaHoraSecretaria.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
@@ -63,10 +63,9 @@ namespace SistemaDeCitasMordagiss.Views
 
         private void LklConsultarAgenda_Click(object sender, EventArgs e)
         {
-            // Muestra el UserControl que enseña la Agenda General (hoy / rango).
+
             var uc = new UcAgendaGeneral();
-            // Si tu UcAgendaDelDia tiene método público para cargar datos, llámalo:
-            // uc.CargarAgenda(DateTime.Today);
+
             MostrarUserControl(uc);
         }
 
@@ -87,7 +86,7 @@ namespace SistemaDeCitasMordagiss.Views
 
         private void LklGestionarHorarios_Click(object sender, EventArgs e)
         {
-            // Muestra el UserControl para Gestionar Horarios Médicos
+            // Muestra el UserControl para Gestionar Horarios Medicos
             var uc = new UcGestionarHorariosMedico();
             MostrarUserControl(uc);
         }
@@ -110,5 +109,7 @@ namespace SistemaDeCitasMordagiss.Views
         {
 
         }
+
+        
     }
 }

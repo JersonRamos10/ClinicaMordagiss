@@ -79,10 +79,7 @@ namespace SistemaDeCitasMordagiss.DataAccess
             return lista;
         }
 
-        /// <summary>
-        /// Desactiva el usuario (pone Activo = 'no') o lo elimina físicamente.
-        /// Aquí optamos por “desactivar” cambiando Activo a 'no'.
-        /// </summary>
+      
         public bool Delete(int idUsuario)
         {
             const string sql = @"

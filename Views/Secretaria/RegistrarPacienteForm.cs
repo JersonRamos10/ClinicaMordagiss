@@ -29,7 +29,7 @@ namespace SistemaDeCitasMordagiss.Views.Secretaria
             epPacientes.SetIconAlignment(txtNumeroIdentidad, ErrorIconAlignment.MiddleRight);
             epPacientes.SetIconAlignment(txtCorreoElectronico, ErrorIconAlignment.MiddleRight);
 
-            // Inicializar ComboBox de Género
+            // Inicializar ComboBox de Genero
             cmbGenero.Items.AddRange(new[] { "Masculino", "Femenino", "Otro" });
             cmbGenero.SelectedIndex = -1;
 
@@ -43,64 +43,62 @@ namespace SistemaDeCitasMordagiss.Views.Secretaria
             bool formularioValido = true;
             epPacientes.Clear();
 
-            // 1) Nombre (obligatorio)
+            
             if (string.IsNullOrWhiteSpace(txtNombre.Text))
             {
                 epPacientes.SetError(txtNombre, "El nombre es obligatorio");
                 formularioValido = false;
             }
 
-            // 2) Apellidos (obligatorio)
+          
             if (string.IsNullOrWhiteSpace(txtApellidos.Text))
             {
                 epPacientes.SetError(txtApellidos, "Los apellidos son obligatorios");
                 formularioValido = false;
             }
 
-            // 3) Género (obligatorio)
+            // 
             if (cmbGenero.SelectedIndex < 0)
             {
-                epPacientes.SetError(cmbGenero, "Selecciona un género");
+                epPacientes.SetError(cmbGenero, "Selecciona un genero");
                 formularioValido = false;
             }
 
-            // 4) Fecha de nacimiento (obligatorio y debe ser anterior a hoy)
             DateTime fechaNac = dtpFechaNacimiento.Value.Date;
             if (fechaNac >= DateTime.Today)
             {
-                epPacientes.SetError(dtpFechaNacimiento, "Fecha inválida");
+                epPacientes.SetError(dtpFechaNacimiento, "Fecha invalida");
                 formularioValido = false;
             }
 
-            // 5) Teléfono (obligatorio, mínimo 7 dígitos)
             string telefono = txtTelefono.Text.Trim();
             if (string.IsNullOrWhiteSpace(telefono))
             {
-                epPacientes.SetError(txtTelefono, "El teléfono es obligatorio");
+                epPacientes.SetError(txtTelefono, "El telefono es obligatorio");
                 formularioValido = false;
             }
             else if (telefono.Length < 7)
             {
-                epPacientes.SetError(txtTelefono, "Debe tener al menos 7 dígitos");
+                epPacientes.SetError(txtTelefono, "Debe tener al menos 7 digitos");
                 formularioValido = false;
             }
 
-            // 6) Dirección (obligatorio)
+           
             if (string.IsNullOrWhiteSpace(txtDireccion.Text))
             {
-                epPacientes.SetError(txtDireccion, "La dirección es obligatoria");
+                epPacientes.SetError(txtDireccion, "La direccion es obligatoria");
                 formularioValido = false;
             }
 
-            // 7) Número de Identidad (opcional, pero si se ingresa, validar longitud mínima)
+        
             string dui = txtNumeroIdentidad.Text.Trim();
             if (!string.IsNullOrEmpty(dui) && dui.Length < 8)
             {
-                epPacientes.SetError(txtNumeroIdentidad, "Número de identidad inválido");
+                epPacientes.SetError(txtNumeroIdentidad, "Numero de identidad invalido");
                 formularioValido = false;
             }
 
-            // 8) Correo Electrónico (opcional, si se ingresa, validar formato básico)
+          
             string correo = txtCorreoElectronico.Text.Trim();
             if (!string.IsNullOrEmpty(correo))
             {
@@ -112,7 +110,7 @@ namespace SistemaDeCitasMordagiss.Views.Secretaria
                 }
                 catch
                 {
-                    epPacientes.SetError(txtCorreoElectronico, "Correo inválido");
+                    epPacientes.SetError(txtCorreoElectronico, "Correo invalido");
                     formularioValido = false;
                 }
             }
@@ -120,7 +118,7 @@ namespace SistemaDeCitasMordagiss.Views.Secretaria
             if (!formularioValido)
                 return;
 
-            // 9) Construir objeto Paciente
+            // Construir objeto Paciente
             var paciente = new Paciente
             {
                 Nombre = txtNombre.Text.Trim(),
@@ -133,7 +131,7 @@ namespace SistemaDeCitasMordagiss.Views.Secretaria
                 CorreoElectronico = correo
             };
 
-            // 10) Guardar en BD
+            // Guardar en BD
             try
             {
                 _pacienteRepo.Crear(paciente);

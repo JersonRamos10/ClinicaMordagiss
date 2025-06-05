@@ -38,7 +38,7 @@ namespace SistemaDeCitasMordagiss.Views.Secretaria
         {
             try
             {
-                // Llamada al nuevo método en PacienteRepo
+                
                 Paciente? paciente = _pacienteRepo.ObtenerPorId(_idPaciente);
 
                 if (paciente != null)
@@ -54,11 +54,11 @@ namespace SistemaDeCitasMordagiss.Views.Secretaria
                 else
                 {
                     MessageBox.Show("No se pudo encontrar la información del paciente seleccionado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    // Configurar los labels para indicar que no se encontraron datos
+                    
                     lblNombrePaciente.Text = "Paciente no encontrado";
                     lblFechaNacimientoPaciente.Text = "N/A";
                     lblGeneroPaciente.Text = "N/A";
-                    // ... y así para los demás labels
+                   
                 }
             }
             catch (Exception ex)
@@ -77,8 +77,8 @@ namespace SistemaDeCitasMordagiss.Views.Secretaria
 
         private void ConfigurarDataGridViewCitas()
         {
-            dgvHistorialCitas.Columns.Clear(); // Limpiar por si acaso
-            dgvHistorialCitas.AutoGenerateColumns = false; // Muy importante para definir columnas manualmente
+            dgvHistorialCitas.Columns.Clear(); 
+            dgvHistorialCitas.AutoGenerateColumns = false; 
 
             dgvHistorialCitas.ReadOnly = true;
             dgvHistorialCitas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -86,12 +86,11 @@ namespace SistemaDeCitasMordagiss.Views.Secretaria
             dgvHistorialCitas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvHistorialCitas.AllowUserToAddRows = false;
 
-            // Definir columnas
             dgvHistorialCitas.Columns.Add(new DataGridViewTextBoxColumn
             {
                 DataPropertyName = "FechaCita",
                 HeaderText = "Fecha",
-                FillWeight = 20 // Peso relativo para el ancho
+                FillWeight = 20 
             });
             dgvHistorialCitas.Columns.Add(new DataGridViewTextBoxColumn
             {

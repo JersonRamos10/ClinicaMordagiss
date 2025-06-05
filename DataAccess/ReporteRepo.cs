@@ -22,14 +22,11 @@ namespace SistemaDeCitasMordagiss.DataAccess
             using var conexion = new SQLiteConnection(CadenaConexion);
             conexion.Open();
 
-            // Normalizar fechas para comparar solo la parte DATE
+            // Normaliza fechas para comparar solo la parte DATE
             var fechaInicioSolo = fechaInicio.Date;
             var fechaFinSolo = fechaFin.Date;
 
-            // Construimos la consulta SQL:
-            // - Contamos todas las citas cuya FechaCita esté entre fechaInicio y fechaFin.
-            // - Agrupamos por profesional.
-            // - Obtenemos el nombre completo desde la tabla ProfesionalMedico.
+           
             string sql = @"
                 SELECT 
                     p.IdProfesionalMedico,
@@ -51,7 +48,7 @@ namespace SistemaDeCitasMordagiss.DataAccess
             using var comando = new SQLiteCommand(sql, conexion);
             comando.Parameters.AddWithValue("@fechaInicio", fechaInicioSolo.ToString("yyyy-MM-dd"));
             comando.Parameters.AddWithValue("@fechaFin", fechaFinSolo.ToString("yyyy-MM-dd"));
-            // Si idProfesional es null, pasamos DBNull.Value para que funcione la condición
+       
             comando.Parameters.AddWithValue("@idProf",
                 idProfesional.HasValue ? (object)idProfesional.Value : DBNull.Value);
 

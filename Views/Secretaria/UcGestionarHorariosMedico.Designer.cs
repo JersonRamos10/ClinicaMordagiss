@@ -60,9 +60,10 @@
             // lblSeleccioneProfesional
             // 
             lblSeleccioneProfesional.AutoSize = true;
+            lblSeleccioneProfesional.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblSeleccioneProfesional.Location = new Point(297, 89);
             lblSeleccioneProfesional.Name = "lblSeleccioneProfesional";
-            lblSeleccioneProfesional.Size = new Size(128, 15);
+            lblSeleccioneProfesional.Size = new Size(135, 15);
             lblSeleccioneProfesional.TabIndex = 0;
             lblSeleccioneProfesional.Text = "Seleccione Profesional:";
             // 
@@ -87,14 +88,16 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             label1.Location = new Point(530, 89);
             label1.Name = "label1";
-            label1.Size = new Size(132, 15);
+            label1.Size = new Size(136, 15);
             label1.TabIndex = 4;
             label1.Text = "Seleccione una Accion: ";
             // 
             // pnlAgregarHorario
             // 
+            pnlAgregarHorario.Controls.Add(pnlVerModificarHorarios);
             pnlAgregarHorario.Controls.Add(btnAgregarHorarioDia);
             pnlAgregarHorario.Controls.Add(label3);
             pnlAgregarHorario.Controls.Add(dtpHoraFinNuevo);
@@ -109,19 +112,23 @@
             // 
             // btnAgregarHorarioDia
             // 
-            btnAgregarHorarioDia.Location = new Point(321, 212);
+            btnAgregarHorarioDia.BackColor = SystemColors.HotTrack;
+            btnAgregarHorarioDia.FlatStyle = FlatStyle.Flat;
+            btnAgregarHorarioDia.ForeColor = SystemColors.ControlLightLight;
+            btnAgregarHorarioDia.Location = new Point(321, 206);
             btnAgregarHorarioDia.Name = "btnAgregarHorarioDia";
-            btnAgregarHorarioDia.Size = new Size(75, 23);
+            btnAgregarHorarioDia.Size = new Size(82, 29);
             btnAgregarHorarioDia.TabIndex = 12;
             btnAgregarHorarioDia.Text = "Agregar Horario";
-            btnAgregarHorarioDia.UseVisualStyleBackColor = true;
+            btnAgregarHorarioDia.UseVisualStyleBackColor = false;
             // 
             // label3
             // 
             label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.Location = new Point(28, 143);
             label3.Name = "label3";
-            label3.Size = new Size(55, 15);
+            label3.Size = new Size(56, 15);
             label3.TabIndex = 11;
             label3.Text = "Hora Fin:";
             // 
@@ -136,9 +143,10 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(28, 84);
             label2.Name = "label2";
-            label2.Size = new Size(68, 15);
+            label2.Size = new Size(70, 15);
             label2.TabIndex = 9;
             label2.Text = "Hora Inicio:";
             // 
@@ -153,11 +161,12 @@
             // lblDiaSemanaNuevo
             // 
             lblDiaSemanaNuevo.AutoSize = true;
+            lblDiaSemanaNuevo.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblDiaSemanaNuevo.Location = new Point(28, 14);
             lblDiaSemanaNuevo.Name = "lblDiaSemanaNuevo";
-            lblDiaSemanaNuevo.Size = new Size(100, 15);
+            lblDiaSemanaNuevo.Size = new Size(104, 15);
             lblDiaSemanaNuevo.TabIndex = 7;
-            lblDiaSemanaNuevo.Text = "Día de la Semana:";
+            lblDiaSemanaNuevo.Text = "Dia de la Semana:";
             // 
             // cmbDiaSemanaNuevo
             // 
@@ -174,7 +183,7 @@
             pnlVerModificarHorarios.Controls.Add(lblSeleccioneAccion);
             pnlVerModificarHorarios.Controls.Add(lblDiaSeleccionadoEdicion);
             pnlVerModificarHorarios.Controls.Add(grpEditarHorarioSeleccionado);
-            pnlVerModificarHorarios.Location = new Point(296, 145);
+            pnlVerModificarHorarios.Location = new Point(0, 0);
             pnlVerModificarHorarios.Name = "pnlVerModificarHorarios";
             pnlVerModificarHorarios.Size = new Size(462, 395);
             pnlVerModificarHorarios.TabIndex = 13;
@@ -191,20 +200,22 @@
             // lblSeleccioneAccion
             // 
             lblSeleccioneAccion.AutoSize = true;
+            lblSeleccioneAccion.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblSeleccioneAccion.Location = new Point(32, 9);
             lblSeleccioneAccion.Name = "lblSeleccioneAccion";
-            lblSeleccioneAccion.Size = new Size(119, 15);
+            lblSeleccioneAccion.Size = new Size(125, 15);
             lblSeleccioneAccion.TabIndex = 7;
             lblSeleccioneAccion.Text = "Horarios Registrados:";
             // 
             // lblDiaSeleccionadoEdicion
             // 
             lblDiaSeleccionadoEdicion.AutoSize = true;
+            lblDiaSeleccionadoEdicion.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblDiaSeleccionadoEdicion.Location = new Point(32, 190);
             lblDiaSeleccionadoEdicion.Name = "lblDiaSeleccionadoEdicion";
-            lblDiaSeleccionadoEdicion.Size = new Size(175, 15);
+            lblDiaSeleccionadoEdicion.Size = new Size(181, 15);
             lblDiaSeleccionadoEdicion.TabIndex = 9;
-            lblDiaSeleccionadoEdicion.Text = "Editando Día: [Nombre del Día])";
+            lblDiaSeleccionadoEdicion.Text = "Editando Dia: [Nombre del Dia])";
             // 
             // grpEditarHorarioSeleccionado
             // 
@@ -223,19 +234,23 @@
             // 
             // btnEliminarHorarioSeleccionado
             // 
-            btnEliminarHorarioSeleccionado.Location = new Point(217, 145);
+            btnEliminarHorarioSeleccionado.BackColor = Color.Crimson;
+            btnEliminarHorarioSeleccionado.FlatStyle = FlatStyle.Flat;
+            btnEliminarHorarioSeleccionado.ForeColor = SystemColors.ButtonHighlight;
+            btnEliminarHorarioSeleccionado.Location = new Point(212, 138);
             btnEliminarHorarioSeleccionado.Name = "btnEliminarHorarioSeleccionado";
-            btnEliminarHorarioSeleccionado.Size = new Size(75, 23);
+            btnEliminarHorarioSeleccionado.Size = new Size(80, 30);
             btnEliminarHorarioSeleccionado.TabIndex = 15;
             btnEliminarHorarioSeleccionado.Text = "Eliminar";
-            btnEliminarHorarioSeleccionado.UseVisualStyleBackColor = true;
+            btnEliminarHorarioSeleccionado.UseVisualStyleBackColor = false;
             // 
             // lblHoraInicioEdicion
             // 
             lblHoraInicioEdicion.AutoSize = true;
+            lblHoraInicioEdicion.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblHoraInicioEdicion.Location = new Point(17, 31);
             lblHoraInicioEdicion.Name = "lblHoraInicioEdicion";
-            lblHoraInicioEdicion.Size = new Size(105, 15);
+            lblHoraInicioEdicion.Size = new Size(109, 15);
             lblHoraInicioEdicion.TabIndex = 14;
             lblHoraInicioEdicion.Text = "Nueva Hora Inicio:";
             // 
@@ -257,19 +272,23 @@
             // 
             // btnActualizarHorarioSeleccionado
             // 
-            btnActualizarHorarioSeleccionado.Location = new Point(310, 145);
+            btnActualizarHorarioSeleccionado.BackColor = SystemColors.HotTrack;
+            btnActualizarHorarioSeleccionado.FlatStyle = FlatStyle.Flat;
+            btnActualizarHorarioSeleccionado.ForeColor = SystemColors.ControlLightLight;
+            btnActualizarHorarioSeleccionado.Location = new Point(310, 137);
             btnActualizarHorarioSeleccionado.Name = "btnActualizarHorarioSeleccionado";
-            btnActualizarHorarioSeleccionado.Size = new Size(75, 23);
+            btnActualizarHorarioSeleccionado.Size = new Size(79, 31);
             btnActualizarHorarioSeleccionado.TabIndex = 12;
             btnActualizarHorarioSeleccionado.Text = "Actualizar";
-            btnActualizarHorarioSeleccionado.UseVisualStyleBackColor = true;
+            btnActualizarHorarioSeleccionado.UseVisualStyleBackColor = false;
             // 
             // lblHoraFinEdicion
             // 
             lblHoraFinEdicion.AutoSize = true;
+            lblHoraFinEdicion.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblHoraFinEdicion.Location = new Point(17, 91);
             lblHoraFinEdicion.Name = "lblHoraFinEdicion";
-            lblHoraFinEdicion.Size = new Size(92, 15);
+            lblHoraFinEdicion.Size = new Size(95, 15);
             lblHoraFinEdicion.TabIndex = 11;
             lblHoraFinEdicion.Text = "Nueva Hora Fin:";
             // 
@@ -278,7 +297,6 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
-            Controls.Add(pnlVerModificarHorarios);
             Controls.Add(pnlAgregarHorario);
             Controls.Add(cmbAccionHorario);
             Controls.Add(label1);

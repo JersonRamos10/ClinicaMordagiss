@@ -115,10 +115,7 @@ namespace SistemaDeCitasMordagiss.DataAccess
             return cmd.ExecuteNonQuery() > 0;
         }
 
-        /// <summary>
-        /// Trae un ProfesionalMedico a partir del NombreUsuario en UsuarioSistema (minúsculas).
-        /// Devuelve null si no se encuentra.
-        /// </summary>
+       
         public ProfesionalMedico? TraerPorUsuario(string nombreUsuario)
         {
             using var con = new SQLiteConnection(Cadena);

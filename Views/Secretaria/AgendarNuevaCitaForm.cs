@@ -228,7 +228,7 @@ namespace SistemaDeCitasMordagiss.Views.Secretaria
             if (medDisponibles.Count == 0)
             {
                 MessageBox.Show(
-                    "No hay ningún médico registrado en el sistema.\n" +
+                    "No hay ningún medico registrado en el sistema.\n" +
                     "Consulta con el administrador.",
                     "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
@@ -268,7 +268,7 @@ namespace SistemaDeCitasMordagiss.Views.Secretaria
             //  Si no hay medico seleccionado, muestro error y deshabilito dependientes
             if (cmbMedico.SelectedIndex < 0 || cmbMedico.SelectedValue == null)
             {
-                _ep.SetError(cmbMedico, "Debes seleccionar un médico");
+                _ep.SetError(cmbMedico, "Debes seleccionar un medico");
                 dtpFechaCita.Enabled = false;
                 cmbHoraDisponible.Enabled = false;
                 btnAgendarCita.Enabled = false;
@@ -295,7 +295,7 @@ namespace SistemaDeCitasMordagiss.Views.Secretaria
             // Verificando que haya un medico seleccionado
             if (_idMedicoSeleccionado <= 0)
             {
-                _ep.SetError(dtpFechaCita, "Selecciona primero un médico");
+                _ep.SetError(dtpFechaCita, "Selecciona primero un medico");
                 return;
             }
             _ep.SetError(dtpFechaCita, "");
@@ -319,9 +319,9 @@ namespace SistemaDeCitasMordagiss.Views.Secretaria
             {
                 lblSinDisponibilidad.ForeColor = Color.Red;
                 lblSinDisponibilidad.Text =
-                    $"El médico no tiene horario para {fecha:dddd, dd/MM/yyyy}.";
+                    $"El medico no tiene horario para {fecha:dddd, dd/MM/yyyy}.";
                 lblSinDisponibilidad.Visible = true;
-                _ep.SetError(dtpFechaCita, "Este médico no trabaja ese día");
+                _ep.SetError(dtpFechaCita, "Este medico no trabaja ese dia");
                 return;
             }
 
@@ -489,7 +489,7 @@ namespace SistemaDeCitasMordagiss.Views.Secretaria
 
         private void BtnDescargarBoleta_Click(object sender, EventArgs e)
         {
-            // Ahora sí existe _boletaPacienteNombre, etc.
+            // Ahora si existe _boletaPacienteNombre, etc.
             using var sfd = new SaveFileDialog();
             sfd.Filter = "Archivos PDF|*.pdf";
             sfd.Title = "Guardar Boleta de Cita";

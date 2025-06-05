@@ -46,12 +46,14 @@
             // 
             // btnNuevoPaciente
             // 
+            btnNuevoPaciente.BackColor = SystemColors.InactiveCaption;
+            btnNuevoPaciente.FlatStyle = FlatStyle.Flat;
             btnNuevoPaciente.Location = new Point(657, 102);
             btnNuevoPaciente.Name = "btnNuevoPaciente";
             btnNuevoPaciente.Size = new Size(103, 28);
             btnNuevoPaciente.TabIndex = 1;
             btnNuevoPaciente.Text = "Nuevo Paciente";
-            btnNuevoPaciente.UseVisualStyleBackColor = true;
+            btnNuevoPaciente.UseVisualStyleBackColor = false;
             // 
             // txtBuscarPaciente
             // 
@@ -62,6 +64,7 @@
             // 
             // btnBuscarPaciente
             // 
+            btnBuscarPaciente.FlatStyle = FlatStyle.Flat;
             btnBuscarPaciente.Location = new Point(524, 102);
             btnBuscarPaciente.Name = "btnBuscarPaciente";
             btnBuscarPaciente.Size = new Size(93, 25);

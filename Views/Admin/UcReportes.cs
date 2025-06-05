@@ -16,10 +16,10 @@ using SistemaDeCitasMordagiss.Models;
 
 namespace SistemaDeCitasMordagiss.Views.Admin
 {
-    public partial class UcReportes: UserControl
+    public partial class UcReportes : UserControl
     {
         // Instancia del repositorio de reportes y del repositorio de medicos
-        
+
         private readonly ReporteRepo repositorioReporte = new ReporteRepo();
         private readonly MedicoRepo repositorioMedico = new MedicoRepo();
         public UcReportes()
@@ -41,7 +41,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
 
         private void CargarComboProfesionales()
         {
-            // Primero, vaciar ítems existentes
+
             cmbProfesionalesReporte.Items.Clear();
 
             // Agregar la opción "Todos"
@@ -80,7 +80,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
             public int? Valor { get; set; }
 
             public override string ToString()
-                => Texto ?? string.Empty;   
+                => Texto ?? string.Empty;
         }
 
         private void GenerarReporte()
@@ -106,7 +106,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
             // Obtener ID del profesional seleccionado (o null si es "Todos")
             var itemSeleccionado = cmbProfesionalesReporte.SelectedItem as ComboItem;
             int? idProfesional = itemSeleccionado?.Valor;
-           
+
 
             // Invocar al repositorio y capturar la lista de resultados
             List<ReporteActividadProfesional> listaReporte;
@@ -142,7 +142,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
             if (dgvReporteActividades.Columns.Contains("TotalCitas"))
                 dgvReporteActividades.Columns["TotalCitas"].HeaderText = "Total de citas";
 
-          
+
             btnExportarPDFReporte.Enabled = true;
         }
 
@@ -257,6 +257,11 @@ namespace SistemaDeCitasMordagiss.Views.Admin
                 }
             }
         }
+
+        private void UcReportes_Load(object sender, EventArgs e)
+        {
+
+        }
     }
-    
+
 }

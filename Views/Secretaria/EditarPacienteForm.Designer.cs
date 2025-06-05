@@ -72,9 +72,10 @@
             // label6
             // 
             label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.Location = new Point(21, 498);
             label6.Name = "label6";
-            label6.Size = new Size(164, 15);
+            label6.Size = new Size(169, 15);
             label6.TabIndex = 33;
             label6.Text = "Correo Electronico (Opcional)";
             // 
@@ -116,6 +117,7 @@
             // 
             // btnCancelarPaciente
             // 
+            btnCancelarPaciente.FlatStyle = FlatStyle.Flat;
             btnCancelarPaciente.Location = new Point(206, 585);
             btnCancelarPaciente.Name = "btnCancelarPaciente";
             btnCancelarPaciente.Size = new Size(90, 32);
@@ -125,12 +127,15 @@
             // 
             // btnGuardarPaciente
             // 
+            btnGuardarPaciente.BackColor = SystemColors.HotTrack;
+            btnGuardarPaciente.FlatStyle = FlatStyle.Flat;
+            btnGuardarPaciente.ForeColor = SystemColors.ButtonHighlight;
             btnGuardarPaciente.Location = new Point(326, 585);
             btnGuardarPaciente.Name = "btnGuardarPaciente";
             btnGuardarPaciente.Size = new Size(116, 32);
             btnGuardarPaciente.TabIndex = 27;
             btnGuardarPaciente.Text = "Guardar Paciente";
-            btnGuardarPaciente.UseVisualStyleBackColor = true;
+            btnGuardarPaciente.UseVisualStyleBackColor = false;
             // 
             // txtCorreoElectronico
             // 
@@ -207,6 +212,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ControlLightLight;
             ClientSize = new Size(468, 645);
             Controls.Add(label8);
             Controls.Add(label7);

@@ -66,7 +66,7 @@
             // btnCerrarSesionMedico
             // 
             btnCerrarSesionMedico.BackColor = SystemColors.InactiveCaption;
-            btnCerrarSesionMedico.FlatStyle = FlatStyle.Popup;
+            btnCerrarSesionMedico.FlatStyle = FlatStyle.Flat;
             btnCerrarSesionMedico.Location = new Point(679, 29);
             btnCerrarSesionMedico.Name = "btnCerrarSesionMedico";
             btnCerrarSesionMedico.Size = new Size(92, 30);

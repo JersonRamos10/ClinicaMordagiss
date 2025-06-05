@@ -37,7 +37,7 @@ namespace SistemaDeCitasMordagiss.Views.Secretaria
         }
         private void UcAgendarCita_Load(object sender, EventArgs e)
         {
-            // Opcional: cargar todos los pacientes al iniciar, o dejar la grilla vacía
+          
             dgvPacientes.DataSource = new List<Paciente>();
             btnAbrirAgendarForm.Enabled = false;
         }
@@ -61,11 +61,11 @@ namespace SistemaDeCitasMordagiss.Views.Secretaria
                 return;
             }
 
-            // Enlazamos sólo los campos necesarios a la grilla:
+         
             var tablaVisual = resultados
                 .Select(p => new
                 {
-                    p.IdPaciente,      // Lo mantenemos oculto en la grilla
+                    p.IdPaciente,     
                     p.Nombre,
                     p.Apellidos,
                     p.Genero,
@@ -76,7 +76,7 @@ namespace SistemaDeCitasMordagiss.Views.Secretaria
 
             dgvPacientes.DataSource = tablaVisual;
 
-            // Ajustar columnas (ocultar IdPaciente):
+          
             if (dgvPacientes.Columns.Contains("IdPaciente"))
                 dgvPacientes.Columns["IdPaciente"].Visible = false;
 
@@ -86,7 +86,7 @@ namespace SistemaDeCitasMordagiss.Views.Secretaria
             dgvPacientes.Columns["Telefono"].HeaderText = "Teléfono";
             dgvPacientes.Columns["NumeroIdentidad"].HeaderText = "Identidad";
 
-            // Ningún paciente queda seleccionado hasta que el usuario haga clic en la grilla
+          
             _pacienteSeleccionado = null;
             lblPacienteSeleccionado.Text = "";
             btnAbrirAgendarForm.Enabled = false;
@@ -103,7 +103,7 @@ namespace SistemaDeCitasMordagiss.Views.Secretaria
             if (fila.DataBoundItem == null)
                 return;
 
-            // La DataBoundItem es un objeto anónimo con las mismas propiedades
+           
             dynamic datos = fila.DataBoundItem;
             int id = datos.IdPaciente;
 

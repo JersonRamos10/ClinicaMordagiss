@@ -67,7 +67,7 @@ namespace SistemaDeCitasMordagiss.DataAccess
                     IdUsuarioSistema = Convert.ToInt32(r["IdUsuarioSistema"]),
                     NombreCompleto = r["NombreCompleto"].ToString()!,
                     NombreUsuario = r["NombreUsuario"].ToString()!,
-                    Contrasena = r["Contrasena"].ToString()!,   // Ahora sí la cargamos
+                    Contrasena = r["Contrasena"].ToString()!,   
                     Rol = r["Rol"].ToString()!,
                     Activo = r["Activo"].ToString()!
                 });

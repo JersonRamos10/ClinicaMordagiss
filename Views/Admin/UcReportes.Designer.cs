@@ -102,7 +102,7 @@
             // 
             lblErrorReporte.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lblErrorReporte.AutoSize = true;
-            lblErrorReporte.Location = new Point(217, 188);
+            lblErrorReporte.Location = new Point(448, 187);
             lblErrorReporte.Name = "lblErrorReporte";
             lblErrorReporte.Size = new Size(0, 15);
             lblErrorReporte.TabIndex = 5;
@@ -153,7 +153,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(217, 183);
+            label3.Location = new Point(217, 185);
             label3.Name = "label3";
             label3.Size = new Size(209, 17);
             label3.TabIndex = 10;
@@ -177,6 +177,7 @@
             Controls.Add(dtpFechaInicioCitas);
             Name = "UcReportes";
             Size = new Size(810, 500);
+            Load += UcReportes_Load;
             ((System.ComponentModel.ISupportInitialize)dgvReporteActividades).EndInit();
             ((System.ComponentModel.ISupportInitialize)epReporte).EndInit();
             ResumeLayout(false);

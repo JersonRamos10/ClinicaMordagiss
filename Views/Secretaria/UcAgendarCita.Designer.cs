@@ -55,7 +55,7 @@
             // 
             // btnBuscarPaciente
             // 
-            btnBuscarPaciente.FlatStyle = FlatStyle.Popup;
+            btnBuscarPaciente.FlatStyle = FlatStyle.Flat;
             btnBuscarPaciente.Location = new Point(529, 135);
             btnBuscarPaciente.Name = "btnBuscarPaciente";
             btnBuscarPaciente.Size = new Size(75, 23);
@@ -92,7 +92,7 @@
             btnAbrirAgendarForm.BackColor = SystemColors.MenuHighlight;
             btnAbrirAgendarForm.Cursor = Cursors.Hand;
             btnAbrirAgendarForm.Enabled = false;
-            btnAbrirAgendarForm.FlatStyle = FlatStyle.Popup;
+            btnAbrirAgendarForm.FlatStyle = FlatStyle.Flat;
             btnAbrirAgendarForm.ForeColor = SystemColors.ButtonHighlight;
             btnAbrirAgendarForm.Location = new Point(652, 461);
             btnAbrirAgendarForm.Name = "btnAbrirAgendarForm";

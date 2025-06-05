@@ -43,12 +43,12 @@
             chkConfirmarCita = new CheckBox();
             lblInfoCitaSeleccionada = new Label();
             pnlReprogramacion = new Panel();
-            btnGuardarCambiosCita = new Button();
             cmbNuevaHoraReprogramacion = new ComboBox();
             lblInfoDisponibilidad = new Label();
             lblNuevaHora = new Label();
             dtpNuevaFechaReprogramacion = new DateTimePicker();
             lblNuevaFecha = new Label();
+            btnGuardarCambiosCita = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvCitasGestion).BeginInit();
             grpAccionesCita.SuspendLayout();
             pnlReprogramacion.SuspendLayout();
@@ -57,9 +57,10 @@
             // lblFechaDesde
             // 
             lblFechaDesde.AutoSize = true;
+            lblFechaDesde.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblFechaDesde.Location = new Point(241, 103);
             lblFechaDesde.Name = "lblFechaDesde";
-            lblFechaDesde.Size = new Size(76, 15);
+            lblFechaDesde.Size = new Size(80, 15);
             lblFechaDesde.TabIndex = 0;
             lblFechaDesde.Text = "Fecha Desde:";
             // 
@@ -74,16 +75,17 @@
             // lblFechaHasta
             // 
             lblFechaHasta.AutoSize = true;
-            lblFechaHasta.Location = new Point(240, 164);
+            lblFechaHasta.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblFechaHasta.Location = new Point(241, 156);
             lblFechaHasta.Name = "lblFechaHasta";
-            lblFechaHasta.Size = new Size(77, 15);
+            lblFechaHasta.Size = new Size(79, 15);
             lblFechaHasta.TabIndex = 2;
             lblFechaHasta.Text = "Fecha Hasta: ";
             // 
             // dtpFechaHasta
             // 
             dtpFechaHasta.Format = DateTimePickerFormat.Short;
-            dtpFechaHasta.Location = new Point(241, 182);
+            dtpFechaHasta.Location = new Point(242, 174);
             dtpFechaHasta.Name = "dtpFechaHasta";
             dtpFechaHasta.Size = new Size(200, 23);
             dtpFechaHasta.TabIndex = 3;
@@ -91,9 +93,10 @@
             // lblEstadoFiltro
             // 
             lblEstadoFiltro.AutoSize = true;
+            lblEstadoFiltro.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblEstadoFiltro.Location = new Point(467, 103);
             lblEstadoFiltro.Name = "lblEstadoFiltro";
-            lblEstadoFiltro.Size = new Size(99, 15);
+            lblEstadoFiltro.Size = new Size(104, 15);
             lblEstadoFiltro.TabIndex = 4;
             lblEstadoFiltro.Text = "Filtrar por Estado:";
             // 
@@ -107,19 +110,20 @@
             // 
             // btnFiltrarCitas
             // 
-            btnFiltrarCitas.FlatStyle = FlatStyle.Popup;
+            btnFiltrarCitas.BackColor = SystemColors.InactiveCaption;
+            btnFiltrarCitas.FlatStyle = FlatStyle.Flat;
             btnFiltrarCitas.Location = new Point(606, 120);
             btnFiltrarCitas.Name = "btnFiltrarCitas";
             btnFiltrarCitas.Size = new Size(75, 23);
             btnFiltrarCitas.TabIndex = 6;
             btnFiltrarCitas.Text = "Filtrar Citas";
-            btnFiltrarCitas.UseVisualStyleBackColor = true;
+            btnFiltrarCitas.UseVisualStyleBackColor = false;
             // 
             // dgvCitasGestion
             // 
             dgvCitasGestion.BackgroundColor = SystemColors.ControlLightLight;
             dgvCitasGestion.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCitasGestion.Location = new Point(241, 213);
+            dgvCitasGestion.Location = new Point(242, 205);
             dgvCitasGestion.Name = "dgvCitasGestion";
             dgvCitasGestion.Size = new Size(590, 164);
             dgvCitasGestion.TabIndex = 7;
@@ -131,7 +135,7 @@
             grpAccionesCita.Controls.Add(chkCancelarCita);
             grpAccionesCita.Controls.Add(chkConfirmarCita);
             grpAccionesCita.Controls.Add(lblInfoCitaSeleccionada);
-            grpAccionesCita.Location = new Point(241, 380);
+            grpAccionesCita.Location = new Point(242, 372);
             grpAccionesCita.Name = "grpAccionesCita";
             grpAccionesCita.Size = new Size(297, 162);
             grpAccionesCita.TabIndex = 8;
@@ -194,20 +198,11 @@
             pnlReprogramacion.Controls.Add(lblNuevaHora);
             pnlReprogramacion.Controls.Add(dtpNuevaFechaReprogramacion);
             pnlReprogramacion.Controls.Add(lblNuevaFecha);
-            pnlReprogramacion.Location = new Point(544, 389);
+            pnlReprogramacion.Location = new Point(545, 381);
             pnlReprogramacion.Name = "pnlReprogramacion";
             pnlReprogramacion.Size = new Size(287, 153);
             pnlReprogramacion.TabIndex = 9;
             pnlReprogramacion.Visible = false;
-            // 
-            // btnGuardarCambiosCita
-            // 
-            btnGuardarCambiosCita.Location = new Point(486, 548);
-            btnGuardarCambiosCita.Name = "btnGuardarCambiosCita";
-            btnGuardarCambiosCita.Size = new Size(102, 23);
-            btnGuardarCambiosCita.TabIndex = 13;
-            btnGuardarCambiosCita.Text = "Aplicar Cambios";
-            btnGuardarCambiosCita.UseVisualStyleBackColor = true;
             // 
             // cmbNuevaHoraReprogramacion
             // 
@@ -252,6 +247,18 @@
             lblNuevaFecha.Size = new Size(78, 15);
             lblNuevaFecha.TabIndex = 10;
             lblNuevaFecha.Text = "Nueva Fecha:";
+            // 
+            // btnGuardarCambiosCita
+            // 
+            btnGuardarCambiosCita.BackColor = SystemColors.HotTrack;
+            btnGuardarCambiosCita.FlatStyle = FlatStyle.Flat;
+            btnGuardarCambiosCita.ForeColor = SystemColors.ButtonHighlight;
+            btnGuardarCambiosCita.Location = new Point(473, 539);
+            btnGuardarCambiosCita.Name = "btnGuardarCambiosCita";
+            btnGuardarCambiosCita.Size = new Size(118, 32);
+            btnGuardarCambiosCita.TabIndex = 13;
+            btnGuardarCambiosCita.Text = "Aplicar Cambios";
+            btnGuardarCambiosCita.UseVisualStyleBackColor = false;
             // 
             // UcGestionarCitas
             // 

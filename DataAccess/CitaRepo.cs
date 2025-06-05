@@ -349,7 +349,7 @@ namespace SistemaDeCitasMordagiss.DataAccess
                     HoraFin = r["HoraFin"].ToString()!, // HH:mm
                     EstadoCita = r["EstadoCita"].ToString()!,
                     IdUsuarioRegistra = r["IdUsuarioRegistra"] is DBNull ? (int?)null : Convert.ToInt32(r["IdUsuarioRegistra"]),
-                    FechaRegistroCita = DateTime.Parse(r["FechaRegistroCita"].ToString()!) // Asumiendo que es un formato parseable
+                    FechaRegistroCita = DateTime.Parse(r["FechaRegistroCita"].ToString()!) 
                 });
             }
             return lista;
@@ -491,7 +491,7 @@ namespace SistemaDeCitasMordagiss.DataAccess
             using var cmd = new SQLiteCommand(sql, con);
             cmd.Parameters.AddWithValue("@nuevoEstado", nuevoEstado);
             cmd.Parameters.AddWithValue("@idCita", idCita);
-            // Podrias anadir logica para IdUsuarioActualiza si lo necesitas
+         
 
             int filasAfectadas = cmd.ExecuteNonQuery();
             return filasAfectadas > 0;

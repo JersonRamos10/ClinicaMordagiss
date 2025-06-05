@@ -54,11 +54,11 @@ namespace SistemaDeCitasMordagiss.Views.Admin
             { ep.SetError(txtApellidos, "Obligatorio"); valido = false; }
 
             if (string.IsNullOrWhiteSpace(txtEspecialidad.Text) || txtEspecialidad.Text.Length < 3)
-            { ep.SetError(txtEspecialidad, "Mínimo 3 caracteres"); valido = false; }
+            { ep.SetError(txtEspecialidad, "Minimo 3 caracteres"); valido = false; }
 
             if (string.IsNullOrWhiteSpace(txtTelefono.Text) ||
                 !(txtTelefono.Text.All(char.IsDigit) && txtTelefono.Text.Length == 8))
-            { ep.SetError(txtTelefono, "8 dígitos"); valido = false; }
+            { ep.SetError(txtTelefono, "8 digitos"); valido = false; }
 
             if (string.IsNullOrWhiteSpace(txtCorreo.Text) ||
                 !txtCorreo.Text.Contains('@') || !txtCorreo.Text.Contains('.'))

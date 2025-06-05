@@ -19,7 +19,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
         {
             InitializeComponent();
 
-            chkActivo.Checked = true;  // por defecto "Sí"
+            chkActivo.Checked = true;
             btnGuardar.Click += Guardar;
             btnCancelar.Click += (s, e) => Close();
         }

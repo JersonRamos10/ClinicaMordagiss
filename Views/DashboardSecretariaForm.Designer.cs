@@ -165,14 +165,16 @@
             // 
             // btnCerrarSesionSecretaria
             // 
-            btnCerrarSesionSecretaria.BackColor = SystemColors.MenuHighlight;
-            btnCerrarSesionSecretaria.ForeColor = SystemColors.ControlLightLight;
-            btnCerrarSesionSecretaria.Location = new Point(744, 23);
+            btnCerrarSesionSecretaria.BackColor = SystemColors.InactiveCaption;
+            btnCerrarSesionSecretaria.FlatStyle = FlatStyle.Flat;
+            btnCerrarSesionSecretaria.ForeColor = SystemColors.ActiveCaptionText;
+            btnCerrarSesionSecretaria.Location = new Point(732, 31);
             btnCerrarSesionSecretaria.Name = "btnCerrarSesionSecretaria";
             btnCerrarSesionSecretaria.Size = new Size(99, 31);
             btnCerrarSesionSecretaria.TabIndex = 3;
             btnCerrarSesionSecretaria.Text = "Cerrar Sesion";
             btnCerrarSesionSecretaria.UseVisualStyleBackColor = false;
+            btnCerrarSesionSecretaria.Visible = true;
             // 
             // lblFechaHoraSecretaria
             // 

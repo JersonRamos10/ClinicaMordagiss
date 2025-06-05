@@ -39,7 +39,7 @@
             // dtpFechaAgendaGeneral
             // 
             dtpFechaAgendaGeneral.Format = DateTimePickerFormat.Short;
-            dtpFechaAgendaGeneral.Location = new Point(489, 66);
+            dtpFechaAgendaGeneral.Location = new Point(489, 102);
             dtpFechaAgendaGeneral.Name = "dtpFechaAgendaGeneral";
             dtpFechaAgendaGeneral.Size = new Size(200, 23);
             dtpFechaAgendaGeneral.TabIndex = 0;
@@ -50,7 +50,7 @@
             dgvAgendaGeneral.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvAgendaGeneral.BackgroundColor = SystemColors.ControlLightLight;
             dgvAgendaGeneral.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvAgendaGeneral.Location = new Point(289, 95);
+            dgvAgendaGeneral.Location = new Point(289, 131);
             dgvAgendaGeneral.Name = "dgvAgendaGeneral";
             dgvAgendaGeneral.ReadOnly = true;
             dgvAgendaGeneral.Size = new Size(439, 233);
@@ -62,7 +62,7 @@
             lblRecordCitasPorConfirmar.BackColor = SystemColors.MenuBar;
             lblRecordCitasPorConfirmar.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblRecordCitasPorConfirmar.ForeColor = Color.DodgerBlue;
-            lblRecordCitasPorConfirmar.Location = new Point(289, 376);
+            lblRecordCitasPorConfirmar.Location = new Point(289, 412);
             lblRecordCitasPorConfirmar.Name = "lblRecordCitasPorConfirmar";
             lblRecordCitasPorConfirmar.Size = new Size(156, 15);
             lblRecordCitasPorConfirmar.TabIndex = 2;
@@ -74,7 +74,7 @@
             lblRecordCitasSinAsistir.BackColor = SystemColors.MenuBar;
             lblRecordCitasSinAsistir.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblRecordCitasSinAsistir.ForeColor = Color.DodgerBlue;
-            lblRecordCitasSinAsistir.Location = new Point(289, 406);
+            lblRecordCitasSinAsistir.Location = new Point(289, 442);
             lblRecordCitasSinAsistir.Name = "lblRecordCitasSinAsistir";
             lblRecordCitasSinAsistir.Size = new Size(211, 15);
             lblRecordCitasSinAsistir.TabIndex = 3;
@@ -84,7 +84,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label1.Location = new Point(289, 346);
+            label1.Location = new Point(289, 382);
             label1.Name = "label1";
             label1.Size = new Size(149, 15);
             label1.TabIndex = 4;
