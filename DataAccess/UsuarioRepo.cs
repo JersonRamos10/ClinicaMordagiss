@@ -10,7 +10,7 @@ namespace SistemaDeCitasMordagiss.DataAccess
     {
         private const string Cadena = @"Data Source=ClinicaMordargiss.db;Version=3;";
 
-        // Inserta un UsuarioSistema y retorna el IdUsuarioSistema recién generado.
+        // Inserta un UsuarioSistema y retorna el IdUsuarioSistema recien generado.
         public int CrearYRetornarId(UsuarioSistema u)
         {
             using var con = new SQLiteConnection(Cadena);

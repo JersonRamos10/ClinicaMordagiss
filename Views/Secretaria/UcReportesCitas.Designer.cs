@@ -89,12 +89,15 @@
             // 
             // btnGenerarReporteCitas
             // 
-            btnGenerarReporteCitas.Location = new Point(68, 184);
+            btnGenerarReporteCitas.BackColor = SystemColors.HotTrack;
+            btnGenerarReporteCitas.FlatStyle = FlatStyle.Flat;
+            btnGenerarReporteCitas.ForeColor = SystemColors.ButtonHighlight;
+            btnGenerarReporteCitas.Location = new Point(68, 179);
             btnGenerarReporteCitas.Name = "btnGenerarReporteCitas";
-            btnGenerarReporteCitas.Size = new Size(75, 23);
+            btnGenerarReporteCitas.Size = new Size(80, 28);
             btnGenerarReporteCitas.TabIndex = 4;
             btnGenerarReporteCitas.Text = "Generar Reporte";
-            btnGenerarReporteCitas.UseVisualStyleBackColor = true;
+            btnGenerarReporteCitas.UseVisualStyleBackColor = false;
             // 
             // dgvReporteCitasSecretaria
             // 
@@ -219,7 +222,7 @@
             // 
             // btnDescargarPdfReporte
             // 
-            btnDescargarPdfReporte.BackColor = SystemColors.MenuHighlight;
+            btnDescargarPdfReporte.BackColor = SystemColors.HotTrack;
             btnDescargarPdfReporte.FlatStyle = FlatStyle.Flat;
             btnDescargarPdfReporte.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             btnDescargarPdfReporte.ForeColor = SystemColors.ButtonHighlight;

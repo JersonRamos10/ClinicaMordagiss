@@ -32,6 +32,7 @@
             lblBienvenidaSecretaria = new Label();
             lblRolSecretaria = new Label();
             panel1 = new Panel();
+            btnCerrarSesionSecretaria = new Button();
             lklReporteCitas = new LinkLabel();
             lklConfirmarCitas = new LinkLabel();
             lklGestionarHorarios = new LinkLabel();
@@ -39,12 +40,10 @@
             lklConsultarAgenda = new LinkLabel();
             lklAgendarCita = new LinkLabel();
             pictureBox1 = new PictureBox();
-            btnCerrarSesionSecretaria = new Button();
             lblFechaHoraSecretaria = new Label();
             panelContenedorSecretaria = new Panel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            panelContenedorSecretaria.SuspendLayout();
             SuspendLayout();
             // 
             // lblBienvenidaSecretaria
@@ -66,6 +65,7 @@
             // panel1
             // 
             panel1.BackColor = Color.LightSteelBlue;
+            panel1.Controls.Add(btnCerrarSesionSecretaria);
             panel1.Controls.Add(lklReporteCitas);
             panel1.Controls.Add(lklConfirmarCitas);
             panel1.Controls.Add(lklGestionarHorarios);
@@ -80,6 +80,18 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(228, 630);
             panel1.TabIndex = 2;
+            // 
+            // btnCerrarSesionSecretaria
+            // 
+            btnCerrarSesionSecretaria.BackColor = SystemColors.ControlLightLight;
+            btnCerrarSesionSecretaria.FlatStyle = FlatStyle.Flat;
+            btnCerrarSesionSecretaria.ForeColor = SystemColors.ActiveCaptionText;
+            btnCerrarSesionSecretaria.Location = new Point(65, 515);
+            btnCerrarSesionSecretaria.Name = "btnCerrarSesionSecretaria";
+            btnCerrarSesionSecretaria.Size = new Size(99, 31);
+            btnCerrarSesionSecretaria.TabIndex = 3;
+            btnCerrarSesionSecretaria.Text = "Cerrar Sesion";
+            btnCerrarSesionSecretaria.UseVisualStyleBackColor = false;
             // 
             // lklReporteCitas
             // 
@@ -163,19 +175,6 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
-            // btnCerrarSesionSecretaria
-            // 
-            btnCerrarSesionSecretaria.BackColor = SystemColors.InactiveCaption;
-            btnCerrarSesionSecretaria.FlatStyle = FlatStyle.Flat;
-            btnCerrarSesionSecretaria.ForeColor = SystemColors.ActiveCaptionText;
-            btnCerrarSesionSecretaria.Location = new Point(732, 31);
-            btnCerrarSesionSecretaria.Name = "btnCerrarSesionSecretaria";
-            btnCerrarSesionSecretaria.Size = new Size(99, 31);
-            btnCerrarSesionSecretaria.TabIndex = 3;
-            btnCerrarSesionSecretaria.Text = "Cerrar Sesion";
-            btnCerrarSesionSecretaria.UseVisualStyleBackColor = false;
-            btnCerrarSesionSecretaria.Visible = true;
-            // 
             // lblFechaHoraSecretaria
             // 
             lblFechaHoraSecretaria.AutoSize = true;
@@ -187,7 +186,6 @@
             // panelContenedorSecretaria
             // 
             panelContenedorSecretaria.BackColor = SystemColors.ControlLightLight;
-            panelContenedorSecretaria.Controls.Add(btnCerrarSesionSecretaria);
             panelContenedorSecretaria.Dock = DockStyle.Fill;
             panelContenedorSecretaria.Location = new Point(0, 0);
             panelContenedorSecretaria.Name = "panelContenedorSecretaria";
@@ -210,7 +208,6 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            panelContenedorSecretaria.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }

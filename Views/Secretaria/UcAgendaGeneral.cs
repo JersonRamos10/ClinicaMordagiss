@@ -16,8 +16,11 @@ namespace SistemaDeCitasMordagiss.Views.Secretaria
 
             // Suscribir el evento para cuando cambie la fecha
             dtpFechaAgendaGeneral.ValueChanged += DtpFechaAgendaGeneral_ValueChanged;
+
+            this.Load += UcAgendaGeneral_Load;
         }
 
+        //metodo para cargar la angenda general
         private void UcAgendaGeneral_Load(object sender, EventArgs e)
         {
 
