@@ -43,14 +43,14 @@ namespace SistemaDeCitasMordagiss.Views.Admin
 
             bool formularioValido = true;
 
-            // Validar NOMBRE (obligatorio)
+            // Valida NOMBRE (obligatorio)
             if (string.IsNullOrWhiteSpace(txtNombreServicio.Text))
             {
                 epServicio.SetError(txtNombreServicio, "El nombre es obligatorio");
                 formularioValido = false;
             }
 
-            // Validar COSTO (obligatorio y > 0)
+            // Valida COSTO (obligatorio y > 0)
             if (numCosto.Value <= 0)
             {
                 epServicio.SetError(numCosto, "El costo debe ser mayor que 0");
@@ -64,7 +64,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
                 return;
             }
 
-            // Verificar duplicado de NOMBRE si cambió
+            // Verifica duplicado de NOMBRE si se hizo un cambio
             string nuevoNombre = txtNombreServicio.Text.Trim();
             bool nombreCambio = !nuevoNombre.Equals(
                 servicioOriginal.NombreServicio, StringComparison.OrdinalIgnoreCase);
@@ -80,7 +80,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
                 {
                     epServicio.SetError(txtNombreServicio, "Ya existe un servicio con ese nombre");
                     lblError.ForeColor = Color.Red;
-                    lblError.Text = "El nombre de servicio ya está en uso.";
+                    lblError.Text = "El nombre de servicio ya esta en uso.";
                     return;
                 }
             }
@@ -90,7 +90,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
             {
                 IdServicio = servicioOriginal.IdServicio,
                 NombreServicio = nuevoNombre,
-                Descripcion = txtDescripcion.Text.Trim(),       // opcional
+                Descripcion = txtDescripcion.Text.Trim(),       
                 Costo = numCosto.Value,
                 DuracionEstimadaMin = (int)numDuracion.Value,
                 Activo = chkActivo.Checked ? "Si" : "No"
@@ -100,7 +100,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
 
             MessageBox.Show(
                 "Servicio actualizado correctamente.",
-                "Éxito",
+                "Exito",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
 

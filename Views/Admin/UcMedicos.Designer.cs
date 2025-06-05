@@ -37,6 +37,8 @@
             btnEliminar = new Button();
             dgvMedicos = new DataGridView();
             ep = new ErrorProvider(components);
+            label1 = new Label();
+            label3 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvMedicos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ep).BeginInit();
             SuspendLayout();
@@ -50,23 +52,27 @@
             // 
             // txtBuscar
             // 
-            txtBuscar.Location = new Point(310, 82);
+            txtBuscar.Location = new Point(214, 100);
             txtBuscar.Name = "txtBuscar";
             txtBuscar.Size = new Size(271, 23);
             txtBuscar.TabIndex = 2;
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(681, 81);
+            btnAgregar.BackColor = SystemColors.InactiveCaption;
+            btnAgregar.FlatStyle = FlatStyle.Flat;
+            btnAgregar.ForeColor = SystemColors.ActiveCaptionText;
+            btnAgregar.Location = new Point(659, 97);
             btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(75, 23);
+            btnAgregar.Size = new Size(83, 28);
             btnAgregar.TabIndex = 3;
             btnAgregar.Text = "Agregar";
-            btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.UseVisualStyleBackColor = false;
             // 
             // btnBuscar
             // 
-            btnBuscar.Location = new Point(600, 81);
+            btnBuscar.FlatStyle = FlatStyle.Flat;
+            btnBuscar.Location = new Point(491, 100);
             btnBuscar.Name = "btnBuscar";
             btnBuscar.Size = new Size(75, 23);
             btnBuscar.TabIndex = 4;
@@ -75,38 +81,68 @@
             // 
             // btnEditar
             // 
-            btnEditar.Location = new Point(584, 378);
+            btnEditar.BackColor = SystemColors.HotTrack;
+            btnEditar.FlatStyle = FlatStyle.Flat;
+            btnEditar.ForeColor = SystemColors.ButtonHighlight;
+            btnEditar.Location = new Point(581, 371);
             btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(75, 23);
+            btnEditar.Size = new Size(78, 34);
             btnEditar.TabIndex = 5;
             btnEditar.Text = "Editar";
-            btnEditar.UseVisualStyleBackColor = true;
+            btnEditar.UseVisualStyleBackColor = false;
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(681, 378);
+            btnEliminar.BackColor = Color.Crimson;
+            btnEliminar.FlatStyle = FlatStyle.Flat;
+            btnEliminar.ForeColor = SystemColors.ControlLightLight;
+            btnEliminar.Location = new Point(675, 371);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(75, 23);
+            btnEliminar.Size = new Size(81, 34);
             btnEliminar.TabIndex = 6;
             btnEliminar.Text = "Eliminar";
-            btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.UseVisualStyleBackColor = false;
             // 
             // dgvMedicos
             // 
+            dgvMedicos.BackgroundColor = SystemColors.ControlLightLight;
             dgvMedicos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvMedicos.Location = new Point(214, 129);
+            dgvMedicos.Location = new Point(214, 155);
             dgvMedicos.Name = "dgvMedicos";
-            dgvMedicos.Size = new Size(560, 221);
+            dgvMedicos.Size = new Size(560, 207);
             dgvMedicos.TabIndex = 7;
             // 
             // ep
             // 
             ep.ContainerControl = this;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(217, 80);
+            label1.Name = "label1";
+            label1.Size = new Size(156, 15);
+            label1.TabIndex = 8;
+            label1.Text = "Buscar Profesional Medico:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(214, 128);
+            label3.Name = "label3";
+            label3.Size = new Size(209, 17);
+            label3.TabIndex = 11;
+            label3.Text = "Seleccionar una Fila de la Tabla :";
+            // 
             // UcMedicos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ControlLightLight;
+            Controls.Add(label3);
+            Controls.Add(label1);
             Controls.Add(dgvMedicos);
             Controls.Add(btnEliminar);
             Controls.Add(btnEditar);
@@ -132,5 +168,7 @@
         private Button btnEliminar;
         private DataGridView dgvMedicos;
         private ErrorProvider ep;
+        private Label label1;
+        private Label label3;
     }
 }

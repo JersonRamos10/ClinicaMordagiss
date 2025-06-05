@@ -45,12 +45,14 @@
             lblNombre = new Label();
             lblTitulo = new Label();
             ep = new ErrorProvider(components);
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)ep).BeginInit();
             SuspendLayout();
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(223, 534);
+            btnCancelar.FlatStyle = FlatStyle.Flat;
+            btnCancelar.Location = new Point(147, 507);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(85, 31);
             btnCancelar.TabIndex = 29;
@@ -59,17 +61,20 @@
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(114, 534);
+            btnGuardar.BackColor = SystemColors.HotTrack;
+            btnGuardar.FlatStyle = FlatStyle.Flat;
+            btnGuardar.ForeColor = SystemColors.ButtonHighlight;
+            btnGuardar.Location = new Point(248, 507);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(88, 31);
             btnGuardar.TabIndex = 28;
             btnGuardar.Text = "Guardar";
-            btnGuardar.UseVisualStyleBackColor = true;
+            btnGuardar.UseVisualStyleBackColor = false;
             // 
             // chkActivo
             // 
             chkActivo.AutoSize = true;
-            chkActivo.Location = new Point(41, 472);
+            chkActivo.Location = new Point(95, 417);
             chkActivo.Name = "chkActivo";
             chkActivo.Size = new Size(60, 19);
             chkActivo.TabIndex = 27;
@@ -79,10 +84,11 @@
             // lblError
             // 
             lblError.AutoSize = true;
-            lblError.Location = new Point(62, 423);
+            lblError.Location = new Point(41, 462);
             lblError.Name = "lblError";
-            lblError.Size = new Size(0, 15);
+            lblError.Size = new Size(16, 15);
             lblError.TabIndex = 26;
+            lblError.Text = "...";
             // 
             // txtApellidos
             // 
@@ -122,66 +128,83 @@
             // label6
             // 
             label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             label6.Location = new Point(36, 291);
             label6.Name = "label6";
-            label6.Size = new Size(64, 15);
+            label6.Size = new Size(67, 15);
             label6.TabIndex = 20;
             label6.Text = "* Telefono:";
             // 
             // lblEspecialidad
             // 
             lblEspecialidad.AutoSize = true;
+            lblEspecialidad.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblEspecialidad.Location = new Point(33, 228);
             lblEspecialidad.Name = "lblEspecialidad";
-            lblEspecialidad.Size = new Size(86, 15);
+            lblEspecialidad.Size = new Size(87, 15);
             lblEspecialidad.TabIndex = 19;
             lblEspecialidad.Text = "* Especialidad: ";
             // 
             // label4
             // 
             label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             label4.Location = new Point(41, 354);
             label4.Name = "label4";
-            label4.Size = new Size(54, 15);
+            label4.Size = new Size(56, 15);
             label4.TabIndex = 18;
             label4.Text = "* Correo:";
             // 
             // lblApellidos
             // 
             lblApellidos.AutoSize = true;
+            lblApellidos.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblApellidos.Location = new Point(33, 155);
             lblApellidos.Name = "lblApellidos";
-            lblApellidos.Size = new Size(70, 15);
+            lblApellidos.Size = new Size(71, 15);
             lblApellidos.TabIndex = 17;
             lblApellidos.Text = "* Apellidos: ";
             // 
             // lblNombre
             // 
             lblNombre.AutoSize = true;
+            lblNombre.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblNombre.Location = new Point(36, 75);
             lblNombre.Name = "lblNombre";
-            lblNombre.Size = new Size(59, 15);
+            lblNombre.Size = new Size(61, 15);
             lblNombre.TabIndex = 16;
             lblNombre.Text = "* Nombre";
             // 
             // lblTitulo
             // 
             lblTitulo.AutoSize = true;
-            lblTitulo.Location = new Point(164, 17);
+            lblTitulo.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitulo.Location = new Point(157, 23);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(38, 15);
+            lblTitulo.Size = new Size(93, 17);
             lblTitulo.TabIndex = 15;
-            lblTitulo.Text = "Titulo";
+            lblTitulo.Text = "Editar Medico";
             // 
             // ep
             // 
             ep.ContainerControl = this;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label1.Location = new Point(45, 417);
+            label1.Name = "label1";
+            label1.Size = new Size(46, 15);
+            label1.TabIndex = 30;
+            label1.Text = "Estado:";
             // 
             // EditarMedicoForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(410, 583);
+            Controls.Add(label1);
             Controls.Add(btnCancelar);
             Controls.Add(btnGuardar);
             Controls.Add(chkActivo);
@@ -222,5 +245,6 @@
         private Label lblNombre;
         private Label lblTitulo;
         private ErrorProvider ep;
+        private Label label1;
     }
 }

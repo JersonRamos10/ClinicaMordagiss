@@ -39,7 +39,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
 
             dgvUsuarios.DataSource = lista;
 
-            //para no mostrar la contraseña solo los datos necesarios a conocer
+            //para no mostrar la contraseña solo los datos necesarios a conocer por la tabla
             dgvUsuarios.Columns["Contrasena"].Visible= false;
 
             //los encabezados de la dataGrid
@@ -50,7 +50,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
             dgvUsuarios.Columns["Activo"].HeaderText = "Estado";
 
             
-            // Muestra “Activo / Inactivo” en vez de “Si / No”
+            // Muestra "Activo / Inactivo" en vez de "Si / No"
             foreach (DataGridViewRow fila in dgvUsuarios.Rows)
             {
                 string? valorEstado = fila.Cells["Activo"].Value?.ToString()?.ToLower();
@@ -81,7 +81,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
             var formularioEdicion = new EditarUsuarioForm(usuarioSeleccionado);
             formularioEdicion.ShowDialog();
 
-            Cargar();   // refresca la grilla con los cambios
+            Cargar();   // refresca la tabla con los cambios
         }
 
         private void Eliminar()
@@ -117,7 +117,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
                     ? MessageBoxIcon.Information
                     : MessageBoxIcon.Error);
 
-            Cargar();   //refresca la tabla (grilla)
+            Cargar();   //refresca la tabla 
         }
 
     }

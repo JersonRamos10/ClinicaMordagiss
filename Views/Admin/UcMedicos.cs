@@ -10,7 +10,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
 {
     public partial class UcMedicos : UserControl
     {
-  
+        
         private readonly MedicoRepo _repo = new();
 
         public UcMedicos()
@@ -46,7 +46,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
 
             dgvMedicos.DataSource = lista;
 
-            /* Renombrar columnas si existen */
+         
             void H(string col, string txt)
             { if (dgvMedicos.Columns.Contains(col)) dgvMedicos.Columns[col].HeaderText = txt; }
 
@@ -73,7 +73,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
         // Boton Agregar
         private void AbrirFormularioAgregar()
         {
-            using var form = new AgregarMedicoForm();   // lo crearemos después
+            using var form = new AgregarMedicoForm();  
             form.ShowDialog();
             Cargar();
         }
@@ -91,7 +91,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
                 return;
             }
 
-            using var form = new EditarMedicoForm(seleccionado);   // lo crearemos después
+            using var form = new EditarMedicoForm(seleccionado);   
             form.ShowDialog();
             Cargar();
         }
@@ -110,7 +110,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
             }
 
             DialogResult respuesta = MessageBox.Show(
-                $"¿Eliminar DEFINITIVAMENTE a {seleccionado.Nombre} {seleccionado.Apellidos}?",
+                $"¿Esta seguro que desea eliminar a {seleccionado.Nombre} {seleccionado.Apellidos}?",
                 "Confirmar eliminación",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning);
@@ -120,7 +120,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
             bool eliminado = _repo.Borrar(seleccionado.IdProfesionalMedico);
 
             MessageBox.Show(eliminado ? "Profesional eliminado." : "No se pudo eliminar.",
-                            eliminado ? "Éxito" : "Error",
+                            eliminado ? "Exito" : "Error",
                             MessageBoxButtons.OK,
                             eliminado ? MessageBoxIcon.Information : MessageBoxIcon.Error);
 

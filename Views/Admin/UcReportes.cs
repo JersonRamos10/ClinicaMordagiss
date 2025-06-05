@@ -48,13 +48,13 @@ namespace SistemaDeCitasMordagiss.Views.Admin
             cmbProfesionalesReporte.Items.Add(new ComboItem
             {
                 Texto = "Todos",
-                Valor = null   // Valor nulo indica “todos”
+                Valor = null   // Valor nulo indica "todos"
             });
 
             // Obtener la lista completa de profesionales
             List<ProfesionalMedico> listaTodos = repositorioMedico.TraerTodos();
 
-            // Filtrar solo los activos (si no creaste TraerActivos)
+            // Filtrar solo los activos 
             List<ProfesionalMedico> listaActivos = listaTodos
                 .Where(p => p.Activo.Equals("Si", StringComparison.OrdinalIgnoreCase))
                 .ToList();
@@ -69,7 +69,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
                 });
             }
 
-            // Seleccionar por defecto “Todos”
+            // Seleccionar por defecto "Todos"
             cmbProfesionalesReporte.SelectedIndex = 0;
         }
 
@@ -125,7 +125,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
                 return;
             }
 
-            //Verificar si la lista está vacia
+            //Verifica si la lista esta vacia
             if (listaReporte.Count == 0)
             {
                 lblErrorReporte.ForeColor = Color.DarkBlue;
@@ -133,7 +133,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
                 return;
             }
 
-            // 5) Cargar la lista en la DataGridView
+            // Cargar la lista en la DataGridView
             dgvReporteActividades.DataSource = listaReporte;
 
             // 
@@ -164,20 +164,20 @@ namespace SistemaDeCitasMordagiss.Views.Admin
                 dialog.FileName = $"Reporte_Citas_{DateTime.Now:yyyyMMdd_HHmm}.pdf";
 
                 if (dialog.ShowDialog() != DialogResult.OK)
-                    return; // El usuario canceló
+                    return; // El usuario cancelo
 
                 string rutaArchivo = dialog.FileName;
 
                 try
                 {
-                    // 2) Preparar el documento y el escritor
+                    //Preparar el documento y el escritor
                     using (var fs = new FileStream(rutaArchivo, FileMode.Create, FileAccess.Write, FileShare.None))
                     using (var documento = new Document(PageSize.A4, 36, 36, 54, 54))
                     using (var escritor = PdfWriter.GetInstance(documento, fs))
                     {
                         documento.Open();
 
-                        // 3) Título del PDF
+                        // Titulo del PDF
                         var fuenteTitulo = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 16);
                         var parrafoTitulo = new Paragraph("Reporte de Actividad por Profesional\n\n", fuenteTitulo)
                         {
@@ -185,7 +185,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
                         };
                         documento.Add(parrafoTitulo);
 
-                        // 4) Información de rango de fechas y profesional seleccionado
+                        // Informacion de rango de fechas y profesional seleccionado
                         var fuenteInfo = FontFactory.GetFont(FontFactory.HELVETICA, 10);
                         string textoRango = $"Rango de fechas: {dtpFechaInicioCitas.Value:dd/MM/yyyy} " +
                                             $"a {dtpFechaFinCitas.Value:dd/MM/yyyy}";
@@ -203,13 +203,13 @@ namespace SistemaDeCitasMordagiss.Views.Admin
                         };
                         documento.Add(parrafoProf);
 
-                        // 5) Crear tabla en el PDF con el mismo número de columnas que la grilla
+                        // Crear tabla en el PDF con el mismo numero de columnas que la tabla(grilla)
                         var tabla = new PdfPTable(dgvReporteActividades.Columns.Count)
                         {
                             WidthPercentage = 100
                         };
 
-                        // 5.1) Añadir encabezados
+                        //  Añadir encabezados
                         foreach (DataGridViewColumn columna in dgvReporteActividades.Columns)
                         {
                             var celdaEncabezado = new PdfPCell(new Phrase(columna.HeaderText, FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 11)))
@@ -221,10 +221,10 @@ namespace SistemaDeCitasMordagiss.Views.Admin
                             tabla.AddCell(celdaEncabezado);
                         }
 
-                        // 5.2) Añadir filas de datos
+                        // Añadir filas de datos
                         foreach (DataGridViewRow fila in dgvReporteActividades.Rows)
                         {
-                            // Para cada celda en la fila, convertir el valor a texto y agregar como PdfPCell
+                            // este for each es para cada celda en la fila, convertir el valor a texto y agregar como PdfPCell
                             foreach (DataGridViewCell celda in fila.Cells)
                             {
                                 string textoCelda = celda.Value?.ToString() ?? "";
@@ -250,7 +250,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Ocurrió un error al generar el PDF:\n{ex.Message}",
+                    MessageBox.Show($"Ocurrio un error al generar el PDF:\n{ex.Message}",
                                     "Error",
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Error);

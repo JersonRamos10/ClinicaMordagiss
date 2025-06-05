@@ -16,7 +16,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
    
     public partial class AgregarNuevoUsuarioForm : Form
     {
-        private readonly UsuarioRepo _repo = new();   // acceso BD
+        private readonly UsuarioRepo _repo = new();   // acceso a la BD
 
         private readonly Color _colorNormal;
         public AgregarNuevoUsuarioForm()
@@ -95,7 +95,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
                 NombreCompleto = txtNombre.Text.Trim(),
                 NombreUsuario = txtUsuario.Text.Trim().ToLower(),
                 Contrasena = txtClave.Text,
-                Rol = cmbRol.Text,   // debe ser exactamente “ProfesionalMedico” si aplica
+                Rol = cmbRol.Text,   
                 Activo = chkActivo.Checked ? "si" : "no"
             };
             int idNuevoUsuario = _repo.CrearYRetornarId(nuevoUsuario);
@@ -105,11 +105,11 @@ namespace SistemaDeCitasMordagiss.Views.Admin
             {
                 var medicoRepo = new MedicoRepo();
 
-                // Llenar datos mínimos para ProfesionalMedico
+                // Llenado de datos minimos para ProfesionalMedico
                 var nuevoMedico = new ProfesionalMedico
                 {
                     Nombre = txtNombre.Text.Trim(),
-                    Apellidos = "",               // o bien separar nombre completo en dos campos
+                    Apellidos = "",              
                     Especialidad = "Sin definir",
                     TelefonoContacto = "",
                     CorreoElectronico = "",

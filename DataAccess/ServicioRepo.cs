@@ -97,7 +97,7 @@ namespace SistemaDeCitasMordagiss.DataAccess
             comando.ExecuteNonQuery();
         }
 
-        // Borrar un servicio (borrado físico)
+       
         public bool Borrar(int idServicio)
         {
             using var conexion = new SQLiteConnection(CadenaConexion);

@@ -40,6 +40,7 @@
             label2 = new Label();
             lblProfesional = new Label();
             btnExportarPDFReporte = new Button();
+            label3 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvReporteActividades).BeginInit();
             ((System.ComponentModel.ISupportInitialize)epReporte).BeginInit();
             SuspendLayout();
@@ -47,7 +48,7 @@
             // dtpFechaInicioCitas
             // 
             dtpFechaInicioCitas.Format = DateTimePickerFormat.Short;
-            dtpFechaInicioCitas.Location = new Point(217, 147);
+            dtpFechaInicioCitas.Location = new Point(217, 148);
             dtpFechaInicioCitas.Name = "dtpFechaInicioCitas";
             dtpFechaInicioCitas.Size = new Size(200, 23);
             dtpFechaInicioCitas.TabIndex = 0;
@@ -55,7 +56,7 @@
             // dtpFechaFinCitas
             // 
             dtpFechaFinCitas.Format = DateTimePickerFormat.Short;
-            dtpFechaFinCitas.Location = new Point(499, 147);
+            dtpFechaFinCitas.Location = new Point(448, 148);
             dtpFechaFinCitas.Name = "dtpFechaFinCitas";
             dtpFechaFinCitas.Size = new Size(200, 23);
             dtpFechaFinCitas.TabIndex = 1;
@@ -66,23 +67,27 @@
             cmbProfesionalesReporte.FormattingEnabled = true;
             cmbProfesionalesReporte.Location = new Point(351, 97);
             cmbProfesionalesReporte.Name = "cmbProfesionalesReporte";
-            cmbProfesionalesReporte.Size = new Size(121, 23);
+            cmbProfesionalesReporte.Size = new Size(191, 23);
             cmbProfesionalesReporte.TabIndex = 2;
             // 
             // btnGenerarReporte
             // 
-            btnGenerarReporte.Location = new Point(668, 429);
+            btnGenerarReporte.BackColor = SystemColors.MenuHighlight;
+            btnGenerarReporte.FlatStyle = FlatStyle.Flat;
+            btnGenerarReporte.ForeColor = SystemColors.ButtonHighlight;
+            btnGenerarReporte.Location = new Point(668, 408);
             btnGenerarReporte.Name = "btnGenerarReporte";
             btnGenerarReporte.Size = new Size(103, 30);
             btnGenerarReporte.TabIndex = 3;
             btnGenerarReporte.Text = "Generar Reporte";
-            btnGenerarReporte.UseVisualStyleBackColor = true;
+            btnGenerarReporte.UseVisualStyleBackColor = false;
             // 
             // dgvReporteActividades
             // 
             dgvReporteActividades.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvReporteActividades.BackgroundColor = SystemColors.ControlLightLight;
             dgvReporteActividades.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvReporteActividades.Location = new Point(217, 217);
+            dgvReporteActividades.Location = new Point(217, 205);
             dgvReporteActividades.Name = "dgvReporteActividades";
             dgvReporteActividades.ReadOnly = true;
             dgvReporteActividades.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -105,43 +110,61 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(423, 150);
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(217, 129);
             label1.Name = "label1";
-            label1.Size = new Size(70, 15);
+            label1.Size = new Size(75, 15);
             label1.TabIndex = 6;
-            label1.Text = "Fecha Inicio";
+            label1.Text = "Fecha Inicio:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(714, 150);
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(448, 130);
             label2.Name = "label2";
-            label2.Size = new Size(57, 15);
+            label2.Size = new Size(61, 15);
             label2.TabIndex = 7;
-            label2.Text = "Fecha Fin";
+            label2.Text = "Fecha Fin:";
             // 
             // lblProfesional
             // 
             lblProfesional.AutoSize = true;
-            lblProfesional.Location = new Point(217, 97);
+            lblProfesional.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblProfesional.Location = new Point(217, 100);
             lblProfesional.Name = "lblProfesional";
-            lblProfesional.Size = new Size(109, 15);
+            lblProfesional.Size = new Size(116, 15);
             lblProfesional.TabIndex = 8;
-            lblProfesional.Text = "Profesional Medico";
+            lblProfesional.Text = "Profesional Medico:";
             // 
             // btnExportarPDFReporte
             // 
-            btnExportarPDFReporte.Location = new Point(545, 429);
+            btnExportarPDFReporte.BackColor = SystemColors.MenuHighlight;
+            btnExportarPDFReporte.FlatStyle = FlatStyle.Flat;
+            btnExportarPDFReporte.ForeColor = SystemColors.ButtonHighlight;
+            btnExportarPDFReporte.Location = new Point(545, 408);
             btnExportarPDFReporte.Name = "btnExportarPDFReporte";
             btnExportarPDFReporte.Size = new Size(103, 30);
             btnExportarPDFReporte.TabIndex = 9;
             btnExportarPDFReporte.Text = "Exportar a PDF";
-            btnExportarPDFReporte.UseVisualStyleBackColor = true;
+            btnExportarPDFReporte.UseVisualStyleBackColor = false;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(217, 183);
+            label3.Name = "label3";
+            label3.Size = new Size(209, 17);
+            label3.TabIndex = 10;
+            label3.Text = "Seleccionar una Fila de la Tabla :";
             // 
             // UcReportes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ControlLightLight;
+            Controls.Add(label3);
             Controls.Add(btnExportarPDFReporte);
             Controls.Add(lblProfesional);
             Controls.Add(label2);
@@ -173,5 +196,6 @@
         private Label lblErrorReporte;
         private Label lblProfesional;
         private Button btnExportarPDFReporte;
+        private Label label3;
     }
 }

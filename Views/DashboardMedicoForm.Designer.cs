@@ -50,9 +50,9 @@
             lblFechaHoraActual.AutoSize = true;
             lblFechaHoraActual.Location = new Point(248, 61);
             lblFechaHoraActual.Name = "lblFechaHoraActual";
-            lblFechaHoraActual.Size = new Size(38, 15);
+            lblFechaHoraActual.Size = new Size(16, 15);
             lblFechaHoraActual.TabIndex = 0;
-            lblFechaHoraActual.Text = "label1";
+            lblFechaHoraActual.Text = "...";
             // 
             // lblBienvenidoMedico
             // 
@@ -65,12 +65,14 @@
             // 
             // btnCerrarSesionMedico
             // 
+            btnCerrarSesionMedico.BackColor = SystemColors.InactiveCaption;
+            btnCerrarSesionMedico.FlatStyle = FlatStyle.Popup;
             btnCerrarSesionMedico.Location = new Point(679, 29);
             btnCerrarSesionMedico.Name = "btnCerrarSesionMedico";
             btnCerrarSesionMedico.Size = new Size(92, 30);
             btnCerrarSesionMedico.TabIndex = 2;
             btnCerrarSesionMedico.Text = "Cerrar Sesion";
-            btnCerrarSesionMedico.UseVisualStyleBackColor = true;
+            btnCerrarSesionMedico.UseVisualStyleBackColor = false;
             // 
             // pictureBox3
             // 
@@ -85,7 +87,8 @@
             // lkAgenda
             // 
             lkAgenda.AutoSize = true;
-            lkAgenda.Location = new Point(45, 249);
+            lkAgenda.LinkColor = Color.DimGray;
+            lkAgenda.Location = new Point(45, 234);
             lkAgenda.Name = "lkAgenda";
             lkAgenda.Size = new Size(116, 15);
             lkAgenda.TabIndex = 16;
@@ -103,6 +106,7 @@
             // 
             // panel1
             // 
+            panel1.BackColor = Color.LightSteelBlue;
             panel1.Controls.Add(lkAgenda);
             panel1.Controls.Add(pictureBox3);
             panel1.Controls.Add(lblRol);
@@ -114,8 +118,9 @@
             // dgvCitasMedico
             // 
             dgvCitasMedico.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvCitasMedico.BackgroundColor = SystemColors.ControlLightLight;
             dgvCitasMedico.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCitasMedico.Location = new Point(248, 140);
+            dgvCitasMedico.Location = new Point(248, 234);
             dgvCitasMedico.Name = "dgvCitasMedico";
             dgvCitasMedico.ReadOnly = true;
             dgvCitasMedico.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -127,27 +132,27 @@
             lblTituloAgenda.AutoSize = true;
             lblTituloAgenda.Location = new Point(248, 109);
             lblTituloAgenda.Name = "lblTituloAgenda";
-            lblTituloAgenda.Size = new Size(38, 15);
+            lblTituloAgenda.Size = new Size(16, 15);
             lblTituloAgenda.TabIndex = 19;
-            lblTituloAgenda.Text = "label1";
+            lblTituloAgenda.Text = "...";
             // 
             // dtpSeleccionFechaCitas
             // 
             dtpSeleccionFechaCitas.Format = DateTimePickerFormat.Short;
-            dtpSeleccionFechaCitas.Location = new Point(248, 355);
+            dtpSeleccionFechaCitas.Location = new Point(248, 153);
             dtpSeleccionFechaCitas.Name = "dtpSeleccionFechaCitas";
-            dtpSeleccionFechaCitas.Size = new Size(200, 23);
+            dtpSeleccionFechaCitas.Size = new Size(287, 23);
             dtpSeleccionFechaCitas.TabIndex = 20;
             dtpSeleccionFechaCitas.Value = new DateTime(2025, 6, 4, 9, 55, 16, 0);
             // 
             // lblErrorMedico
             // 
             lblErrorMedico.AutoSize = true;
-            lblErrorMedico.Location = new Point(248, 397);
+            lblErrorMedico.Location = new Point(248, 188);
             lblErrorMedico.Name = "lblErrorMedico";
-            lblErrorMedico.Size = new Size(38, 15);
+            lblErrorMedico.Size = new Size(16, 15);
             lblErrorMedico.TabIndex = 21;
-            lblErrorMedico.Text = "label1";
+            lblErrorMedico.Text = "...";
             // 
             // DashboardMedicoForm
             // 

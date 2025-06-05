@@ -10,7 +10,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
 {
     public partial class UcServicios : UserControl
     {
-        // Instancia del repositorio (no estático)
+        // Instancia del repositorio como no estatico
         private readonly ServicioRepo repositorioServicio = new ServicioRepo();
 
         public UcServicios()
@@ -23,7 +23,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
             btnEditarServicio.Click += (s, e) => AbrirFormularioEditar();
             btnEliminarServicio.Click += (s, e) => EliminarServicio();
 
-            // Configurar DataGridView
+            // Configuracion del DataGridView
             dgvServicios.ReadOnly = true;
             dgvServicios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvServicios.MultiSelect = false;
@@ -34,7 +34,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
 
         private void CargarServicios(string filtro = "")
         {
-            // Usar la instancia para llamar TraerTodos()
+            // Usa la instancia para llamar TraerTodos()
             List<Servicio> listaDeServicios = repositorioServicio.TraerTodos();
 
             if (!string.IsNullOrWhiteSpace(filtro))
@@ -48,7 +48,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
 
             dgvServicios.DataSource = listaDeServicios;
 
-            // Renombrar encabezados de columnas si existen
+            // Renombrar encabezados de columnas 
             void Renombrar(string columnaInterna, string encabezado)
             {
                 if (dgvServicios.Columns.Contains(columnaInterna))
@@ -62,7 +62,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
             Renombrar("DuracionEstimadaMin", "Duración (min)");
             Renombrar("Activo", "Estado");
 
-            // Convertir “si”/“no” a “Activo”/“Inactivo”
+            // Convertir "si"/"no" a "Activo"/"Inactivo"
             foreach (DataGridViewRow fila in dgvServicios.Rows)
             {
                 string? valor = fila.Cells["Activo"].Value?.ToString()?.ToLower();
@@ -77,7 +77,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
 
         private void AbrirFormularioAgregar()
         {
-            // Usar el namespace correcto para el formulario
+            
             using var formulario = new AgregarServicioForm();
             formulario.ShowDialog();
         }
@@ -114,7 +114,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
 
             DialogResult respuesta = MessageBox.Show(
                 $"¿Eliminar el servicio “{servicio.NombreServicio}”?",
-                "Confirmar eliminación",
+                "Confirmar eliminacion",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning);
 
@@ -125,7 +125,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
 
             MessageBox.Show(
                 eliminado ? "Servicio eliminado correctamente." : "No se pudo eliminar el servicio.",
-                eliminado ? "Éxito" : "Error",
+                eliminado ? "Exito" : "Error",
                 MessageBoxButtons.OK,
                 eliminado ? MessageBoxIcon.Information : MessageBoxIcon.Error);
 

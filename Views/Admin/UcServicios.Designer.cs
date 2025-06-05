@@ -36,69 +36,106 @@
             btnEditarServicio = new Button();
             btnEliminarServicio = new Button();
             epServicios = new ErrorProvider(components);
+            label1 = new Label();
+            label3 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvServicios).BeginInit();
             ((System.ComponentModel.ISupportInitialize)epServicios).BeginInit();
             SuspendLayout();
             // 
             // txtBuscarServicio
             // 
-            txtBuscarServicio.Location = new Point(231, 117);
+            txtBuscarServicio.Location = new Point(225, 130);
             txtBuscarServicio.Name = "txtBuscarServicio";
-            txtBuscarServicio.Size = new Size(184, 23);
+            txtBuscarServicio.Size = new Size(298, 23);
             txtBuscarServicio.TabIndex = 1;
             // 
             // btnBuscarServicio
             // 
-            btnBuscarServicio.Location = new Point(412, 117);
+            btnBuscarServicio.BackColor = SystemColors.HighlightText;
+            btnBuscarServicio.FlatStyle = FlatStyle.Flat;
+            btnBuscarServicio.Location = new Point(528, 130);
             btnBuscarServicio.Name = "btnBuscarServicio";
             btnBuscarServicio.Size = new Size(75, 23);
             btnBuscarServicio.TabIndex = 2;
             btnBuscarServicio.Text = "Buscar";
-            btnBuscarServicio.UseVisualStyleBackColor = true;
+            btnBuscarServicio.UseVisualStyleBackColor = false;
             // 
             // dgvServicios
             // 
+            dgvServicios.BackgroundColor = SystemColors.ControlLightLight;
             dgvServicios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvServicios.Location = new Point(231, 162);
+            dgvServicios.Location = new Point(225, 181);
             dgvServicios.Name = "dgvServicios";
             dgvServicios.Size = new Size(522, 219);
             dgvServicios.TabIndex = 3;
             // 
             // btnAgregarServicio
             // 
-            btnAgregarServicio.Location = new Point(568, 117);
+            btnAgregarServicio.BackColor = SystemColors.InactiveCaption;
+            btnAgregarServicio.FlatStyle = FlatStyle.Flat;
+            btnAgregarServicio.ForeColor = SystemColors.ActiveCaptionText;
+            btnAgregarServicio.Location = new Point(629, 129);
             btnAgregarServicio.Name = "btnAgregarServicio";
-            btnAgregarServicio.Size = new Size(75, 23);
+            btnAgregarServicio.Size = new Size(97, 26);
             btnAgregarServicio.TabIndex = 4;
-            btnAgregarServicio.Text = "button2";
-            btnAgregarServicio.UseVisualStyleBackColor = true;
+            btnAgregarServicio.Text = "Agregar Servicio";
+            btnAgregarServicio.UseVisualStyleBackColor = false;
             // 
             // btnEditarServicio
             // 
-            btnEditarServicio.Location = new Point(487, 438);
+            btnEditarServicio.BackColor = SystemColors.HotTrack;
+            btnEditarServicio.FlatStyle = FlatStyle.Flat;
+            btnEditarServicio.ForeColor = SystemColors.ButtonHighlight;
+            btnEditarServicio.Location = new Point(591, 406);
             btnEditarServicio.Name = "btnEditarServicio";
-            btnEditarServicio.Size = new Size(75, 23);
+            btnEditarServicio.Size = new Size(66, 33);
             btnEditarServicio.TabIndex = 5;
             btnEditarServicio.Text = "Editar";
-            btnEditarServicio.UseVisualStyleBackColor = true;
+            btnEditarServicio.UseVisualStyleBackColor = false;
             // 
             // btnEliminarServicio
             // 
-            btnEliminarServicio.Location = new Point(568, 438);
+            btnEliminarServicio.BackColor = Color.Crimson;
+            btnEliminarServicio.FlatStyle = FlatStyle.Flat;
+            btnEliminarServicio.ForeColor = SystemColors.ButtonHighlight;
+            btnEliminarServicio.Location = new Point(663, 406);
             btnEliminarServicio.Name = "btnEliminarServicio";
-            btnEliminarServicio.Size = new Size(75, 23);
+            btnEliminarServicio.Size = new Size(84, 33);
             btnEliminarServicio.TabIndex = 6;
             btnEliminarServicio.Text = "Eliminar";
-            btnEliminarServicio.UseVisualStyleBackColor = true;
+            btnEliminarServicio.UseVisualStyleBackColor = false;
             // 
             // epServicios
             // 
             epServicios.ContainerControl = this;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(226, 106);
+            label1.Name = "label1";
+            label1.Size = new Size(95, 15);
+            label1.TabIndex = 7;
+            label1.Text = "Buscar Servicio:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(226, 157);
+            label3.Name = "label3";
+            label3.Size = new Size(209, 17);
+            label3.TabIndex = 12;
+            label3.Text = "Seleccionar una Fila de la Tabla :";
+            // 
             // UcServicios
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ControlLightLight;
+            Controls.Add(label3);
+            Controls.Add(label1);
             Controls.Add(btnEliminarServicio);
             Controls.Add(btnEditarServicio);
             Controls.Add(btnAgregarServicio);
@@ -122,5 +159,7 @@
         private Button btnEditarServicio;
         private Button btnEliminarServicio;
         private ErrorProvider epServicios;
+        private Label label1;
+        private Label label3;
     }
 }

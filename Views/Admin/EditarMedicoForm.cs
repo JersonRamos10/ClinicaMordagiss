@@ -46,6 +46,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
 
             bool valido = true;
 
+            //validaciones basicas para campos nulos o vacios de los text box 
             if (string.IsNullOrWhiteSpace(txtNombre.Text))
             { ep.SetError(txtNombre, "Obligatorio"); valido = false; }
 
@@ -61,7 +62,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
 
             if (string.IsNullOrWhiteSpace(txtCorreo.Text) ||
                 !txtCorreo.Text.Contains('@') || !txtCorreo.Text.Contains('.'))
-            { ep.SetError(txtCorreo, "Correo inválido"); valido = false; }
+            { ep.SetError(txtCorreo, "Correo invalido"); valido = false; }
 
             // correo duplicado si cambió
             bool correoCambio = !txtCorreo.Text.Trim()

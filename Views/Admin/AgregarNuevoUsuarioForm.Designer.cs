@@ -49,27 +49,30 @@
             // lblNombre
             // 
             lblNombre.AutoSize = true;
+            lblNombre.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblNombre.Location = new Point(12, 32);
             lblNombre.Name = "lblNombre";
-            lblNombre.Size = new Size(113, 15);
+            lblNombre.Size = new Size(116, 15);
             lblNombre.TabIndex = 0;
             lblNombre.Text = "Nombre Completo: ";
             // 
             // lblClave
             // 
             lblClave.AutoSize = true;
+            lblClave.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblClave.Location = new Point(12, 203);
             lblClave.Name = "lblClave";
-            lblClave.Size = new Size(81, 15);
+            lblClave.Size = new Size(83, 15);
             lblClave.TabIndex = 1;
             lblClave.Text = "* Contraseña: ";
             // 
             // lblUsuario
             // 
             lblUsuario.AutoSize = true;
+            lblUsuario.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblUsuario.Location = new Point(12, 118);
             lblUsuario.Name = "lblUsuario";
-            lblUsuario.Size = new Size(102, 15);
+            lblUsuario.Size = new Size(106, 15);
             lblUsuario.TabIndex = 2;
             lblUsuario.Text = "* Nombre Usuario";
             // 
@@ -97,9 +100,10 @@
             // label4
             // 
             label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             label4.Location = new Point(12, 315);
             label4.Name = "label4";
-            label4.Size = new Size(89, 15);
+            label4.Size = new Size(93, 15);
             label4.TabIndex = 6;
             label4.Text = "Rol de Usuario: ";
             // 
@@ -114,16 +118,17 @@
             // label5
             // 
             label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             label5.Location = new Point(12, 388);
             label5.Name = "label5";
-            label5.Size = new Size(109, 15);
+            label5.Size = new Size(116, 15);
             label5.TabIndex = 8;
-            label5.Text = "Estado de la cuenta";
+            label5.Text = "Estado de la cuenta:\r\n";
             // 
             // chkActivo
             // 
             chkActivo.AutoSize = true;
-            chkActivo.Location = new Point(183, 388);
+            chkActivo.Location = new Point(136, 387);
             chkActivo.Name = "chkActivo";
             chkActivo.Size = new Size(59, 19);
             chkActivo.TabIndex = 9;
@@ -132,6 +137,7 @@
             // 
             // btnCancelar
             // 
+            btnCancelar.FlatStyle = FlatStyle.Popup;
             btnCancelar.Location = new Point(136, 434);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(84, 33);
@@ -141,12 +147,15 @@
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(248, 434);
+            btnGuardar.BackColor = SystemColors.HotTrack;
+            btnGuardar.FlatStyle = FlatStyle.Popup;
+            btnGuardar.ForeColor = SystemColors.ButtonHighlight;
+            btnGuardar.Location = new Point(239, 434);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(82, 33);
             btnGuardar.TabIndex = 11;
             btnGuardar.Text = "Añadir";
-            btnGuardar.UseVisualStyleBackColor = true;
+            btnGuardar.UseVisualStyleBackColor = false;
             // 
             // lblError
             // 
@@ -164,7 +173,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(342, 492);
+            ClientSize = new Size(363, 492);
             Controls.Add(lblError);
             Controls.Add(btnGuardar);
             Controls.Add(btnCancelar);

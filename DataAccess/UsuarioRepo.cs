@@ -10,9 +10,7 @@ namespace SistemaDeCitasMordagiss.DataAccess
     {
         private const string Cadena = @"Data Source=ClinicaMordargiss.db;Version=3;";
 
-       
-        //Inserta un UsuarioSistema y retorna el IdUsuarioSistema recién generado.
-        
+        // Inserta un UsuarioSistema y retorna el IdUsuarioSistema recién generado.
         public int CrearYRetornarId(UsuarioSistema u)
         {
             using var con = new SQLiteConnection(Cadena);
@@ -37,7 +35,6 @@ namespace SistemaDeCitasMordagiss.DataAccess
             return Convert.ToInt32(id);
         }
 
-        
         public void Crear(UsuarioSistema u)
         {
             CrearYRetornarId(u);
@@ -49,10 +46,19 @@ namespace SistemaDeCitasMordagiss.DataAccess
             using var con = new SQLiteConnection(Cadena);
             con.Open();
 
-            using var cmd = new SQLiteCommand(
-                "SELECT IdUsuarioSistema, NombreCompleto, NombreUsuario, Rol, Activo " +
-                "FROM UsuarioSistema;", con);
+            // Ahora incluimos la columna Contrasena en el SELECT
+            const string sql = @"
+                SELECT 
+                    IdUsuarioSistema,
+                    NombreCompleto,
+                    NombreUsuario,
+                    Contrasena,
+                    Rol,
+                    Activo
+                FROM UsuarioSistema;
+            ";
 
+            using var cmd = new SQLiteCommand(sql, con);
             using var r = cmd.ExecuteReader();
             while (r.Read())
             {
@@ -61,6 +67,7 @@ namespace SistemaDeCitasMordagiss.DataAccess
                     IdUsuarioSistema = Convert.ToInt32(r["IdUsuarioSistema"]),
                     NombreCompleto = r["NombreCompleto"].ToString()!,
                     NombreUsuario = r["NombreUsuario"].ToString()!,
+                    Contrasena = r["Contrasena"].ToString()!,   // Ahora sí la cargamos
                     Rol = r["Rol"].ToString()!,
                     Activo = r["Activo"].ToString()!
                 });
@@ -102,9 +109,7 @@ namespace SistemaDeCitasMordagiss.DataAccess
             return filasAfectadas > 0;
         }
 
-     
         // Recupera un UsuarioSistema que coincida con nombreUsuario + contrasenaPlain.
-     
         public UsuarioSistema? GetByNombreUsuarioAndContrasena(string nombreUsuario, string contrasenaPlain)
         {
             using var con = new SQLiteConnection(Cadena);

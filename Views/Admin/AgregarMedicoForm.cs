@@ -33,7 +33,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
 
             bool valido = true;
 
-            /* Validaciones basicas */
+            /* Validaciones basicas campos vacios o nulos*/
             if (string.IsNullOrWhiteSpace(txtNombre.Text))
             { ep.SetError(txtNombre, "Obligatorio"); valido = false; }
 
@@ -53,7 +53,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
 
             if (!valido)
             {
-                lblError.Text = "Corrige los campos marcados como obligatorios *.";
+                lblError.Text = "Corregir los campos marcados como obligatorios *.";
                 return;
             }
 

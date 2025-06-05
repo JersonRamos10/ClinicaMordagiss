@@ -49,15 +49,19 @@
             // 
             // btnGuardar
             // 
+            btnGuardar.BackColor = SystemColors.HotTrack;
+            btnGuardar.FlatStyle = FlatStyle.Flat;
+            btnGuardar.ForeColor = SystemColors.ControlLightLight;
             btnGuardar.Location = new Point(252, 469);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(82, 33);
             btnGuardar.TabIndex = 23;
             btnGuardar.Text = "Guardar";
-            btnGuardar.UseVisualStyleBackColor = true;
+            btnGuardar.UseVisualStyleBackColor = false;
             // 
             // btnCancelar
             // 
+            btnCancelar.FlatStyle = FlatStyle.Flat;
             btnCancelar.Location = new Point(162, 469);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(84, 33);
@@ -68,7 +72,7 @@
             // chkActivo
             // 
             chkActivo.AutoSize = true;
-            chkActivo.Location = new Point(187, 406);
+            chkActivo.Location = new Point(140, 373);
             chkActivo.Name = "chkActivo";
             chkActivo.Size = new Size(59, 19);
             chkActivo.TabIndex = 21;
@@ -78,16 +82,17 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(16, 406);
+            label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label5.Location = new Point(15, 374);
             label5.Name = "label5";
-            label5.Size = new Size(109, 15);
+            label5.Size = new Size(113, 15);
             label5.TabIndex = 20;
             label5.Text = "Estado de la cuenta";
             // 
             // cmbRol
             // 
             cmbRol.FormattingEnabled = true;
-            cmbRol.Location = new Point(124, 331);
+            cmbRol.Location = new Point(123, 323);
             cmbRol.Name = "cmbRol";
             cmbRol.Size = new Size(145, 23);
             cmbRol.TabIndex = 19;
@@ -95,9 +100,10 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(16, 333);
+            label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label4.Location = new Point(15, 325);
             label4.Name = "label4";
-            label4.Size = new Size(89, 15);
+            label4.Size = new Size(93, 15);
             label4.TabIndex = 18;
             label4.Text = "Rol de Usuario: ";
             // 
@@ -125,18 +131,20 @@
             // lblUsuario
             // 
             lblUsuario.AutoSize = true;
+            lblUsuario.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblUsuario.Location = new Point(16, 131);
             lblUsuario.Name = "lblUsuario";
-            lblUsuario.Size = new Size(102, 15);
+            lblUsuario.Size = new Size(106, 15);
             lblUsuario.TabIndex = 14;
             lblUsuario.Text = "* Nombre Usuario";
             // 
             // lblNombre
             // 
             lblNombre.AutoSize = true;
+            lblNombre.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lblNombre.Location = new Point(16, 45);
             lblNombre.Name = "lblNombre";
-            lblNombre.Size = new Size(113, 15);
+            lblNombre.Size = new Size(116, 15);
             lblNombre.TabIndex = 12;
             lblNombre.Text = "Nombre Completo: ";
             // 
@@ -147,7 +155,7 @@
             // lblError
             // 
             lblError.AutoSize = true;
-            lblError.Location = new Point(17, 290);
+            lblError.Location = new Point(16, 414);
             lblError.Name = "lblError";
             lblError.Size = new Size(0, 15);
             lblError.TabIndex = 24;
@@ -155,7 +163,7 @@
             // chkCambiarClave
             // 
             chkCambiarClave.AutoSize = true;
-            chkCambiarClave.Location = new Point(214, 216);
+            chkCambiarClave.Location = new Point(16, 282);
             chkCambiarClave.Name = "chkCambiarClave";
             chkCambiarClave.Size = new Size(134, 19);
             chkCambiarClave.TabIndex = 25;
@@ -165,9 +173,10 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             label1.Location = new Point(16, 216);
             label1.Name = "label1";
-            label1.Size = new Size(105, 15);
+            label1.Size = new Size(109, 15);
             label1.TabIndex = 26;
             label1.Text = "Nueva Contraeña: ";
             // 

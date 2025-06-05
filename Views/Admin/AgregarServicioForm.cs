@@ -12,14 +12,14 @@ using SistemaDeCitasMordagiss.DataAccess;
 
 namespace SistemaDeCitasMordagiss.Views.Admin
 {
-    public partial class AgregarServicioForm: Form
+    public partial class AgregarServicioForm : Form
     {
         private readonly ServicioRepo repositorioServicio = new ServicioRepo();
         public AgregarServicioForm()
         {
             InitializeComponent();
 
-            chkActivo.Checked = true;  // Por defecto está activo
+            chkActivo.Checked = true;  
             btnGuardarServicio.Click += GuardarServicio;
             btnCancelarServicio.Click += (s, e) => Close();
         }
@@ -48,7 +48,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
             if (!formularioValido)
             {
                 lblError.ForeColor = Color.Red;
-                lblError.Text = "Corrija los campos obligatorios.";
+                lblError.Text = "Correjir los campos obligatorios.";
                 return;
             }
 
@@ -72,21 +72,26 @@ namespace SistemaDeCitasMordagiss.Views.Admin
             var servicioNuevo = new Servicio
             {
                 NombreServicio = txtNombreServicio.Text.Trim(),
-                Descripcion = txtDescripcion.Text.Trim(),       
+                Descripcion = txtDescripcion.Text.Trim(),
                 Costo = numCosto.Value,
-                DuracionEstimadaMin = (int)numDuracion.Value,          
+                DuracionEstimadaMin = (int)numDuracion.Value,
                 Activo = chkActivo.Checked ? "Si" : "No"
             };
 
             repositorioServicio.Crear(servicioNuevo);
 
             MessageBox.Show(
-                "Servicio registrado con éxito.",
-                "Éxito",
+                "Servicio registrado con exito.",
+                "Exito",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
 
             Close();
+        }
+
+        private void lblDuracion_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

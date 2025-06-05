@@ -128,6 +128,7 @@ namespace SistemaDeCitasMordagiss.Views.Admin
                 NombreUsuario = nuevoUsuario,
                 Rol = cmbRol.Text,
                 Activo = chkActivo.Checked ? "Si" : "No",
+               
                 Contrasena = cambiarClave
                                  ? txtClaveNueva.Text
                                  : _usuarioOriginal.Contrasena,

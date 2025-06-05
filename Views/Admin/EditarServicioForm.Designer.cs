@@ -43,6 +43,7 @@
             lblNombre = new Label();
             lblTitulo = new Label();
             epServicio = new ErrorProvider(components);
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)numDuracion).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numCosto).BeginInit();
             ((System.ComponentModel.ISupportInitialize)epServicio).BeginInit();
@@ -51,53 +52,57 @@
             // lblError
             // 
             lblError.AutoSize = true;
-            lblError.Location = new Point(54, 402);
+            lblError.Location = new Point(17, 403);
             lblError.Name = "lblError";
             lblError.Size = new Size(0, 15);
             lblError.TabIndex = 25;
             // 
             // numDuracion
             // 
-            numDuracion.Location = new Point(49, 359);
+            numDuracion.Location = new Point(12, 331);
             numDuracion.Name = "numDuracion";
             numDuracion.Size = new Size(120, 23);
             numDuracion.TabIndex = 24;
             // 
             // txtDescripcion
             // 
-            txtDescripcion.Location = new Point(50, 188);
+            txtDescripcion.Location = new Point(13, 190);
             txtDescripcion.Name = "txtDescripcion";
             txtDescripcion.Size = new Size(195, 23);
             txtDescripcion.TabIndex = 23;
             // 
             // txtNombreServicio
             // 
-            txtNombreServicio.Location = new Point(54, 132);
+            txtNombreServicio.Location = new Point(17, 121);
             txtNombreServicio.Name = "txtNombreServicio";
             txtNombreServicio.Size = new Size(195, 23);
             txtNombreServicio.TabIndex = 22;
             // 
             // btnGuardarServicio
             // 
-            btnGuardarServicio.Location = new Point(274, 525);
+            btnGuardarServicio.BackColor = SystemColors.HotTrack;
+            btnGuardarServicio.FlatStyle = FlatStyle.Flat;
+            btnGuardarServicio.ForeColor = SystemColors.ButtonHighlight;
+            btnGuardarServicio.Location = new Point(176, 434);
             btnGuardarServicio.Name = "btnGuardarServicio";
-            btnGuardarServicio.Size = new Size(75, 23);
+            btnGuardarServicio.Size = new Size(84, 32);
             btnGuardarServicio.TabIndex = 21;
             btnGuardarServicio.Text = "Guardar";
-            btnGuardarServicio.UseVisualStyleBackColor = true;
+            btnGuardarServicio.UseVisualStyleBackColor = false;
             // 
             // btnCancelarServicio
             // 
-            btnCancelarServicio.Location = new Point(163, 523);
+            btnCancelarServicio.FlatStyle = FlatStyle.Flat;
+            btnCancelarServicio.Location = new Point(89, 434);
             btnCancelarServicio.Name = "btnCancelarServicio";
-            btnCancelarServicio.Size = new Size(75, 23);
+            btnCancelarServicio.Size = new Size(81, 32);
             btnCancelarServicio.TabIndex = 20;
             btnCancelarServicio.Text = "Cancelar";
             btnCancelarServicio.UseVisualStyleBackColor = true;
             // 
             // numCosto
             // 
-            numCosto.Location = new Point(50, 259);
+            numCosto.Location = new Point(13, 261);
             numCosto.Name = "numCosto";
             numCosto.Size = new Size(120, 23);
             numCosto.TabIndex = 19;
@@ -105,7 +110,7 @@
             // chkActivo
             // 
             chkActivo.AutoSize = true;
-            chkActivo.Location = new Point(82, 458);
+            chkActivo.Location = new Point(66, 372);
             chkActivo.Name = "chkActivo";
             chkActivo.Size = new Size(60, 19);
             chkActivo.TabIndex = 18;
@@ -115,57 +120,73 @@
             // lblDuracion
             // 
             lblDuracion.AutoSize = true;
-            lblDuracion.Location = new Point(49, 316);
+            lblDuracion.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblDuracion.Location = new Point(11, 313);
             lblDuracion.Name = "lblDuracion";
-            lblDuracion.Size = new Size(93, 15);
+            lblDuracion.Size = new Size(95, 15);
             lblDuracion.TabIndex = 17;
             lblDuracion.Text = "Duracion (min): \r\n";
             // 
             // lblDescripcion
             // 
             lblDescripcion.AutoSize = true;
-            lblDescripcion.Location = new Point(49, 170);
+            lblDescripcion.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblDescripcion.Location = new Point(12, 172);
             lblDescripcion.Name = "lblDescripcion";
-            lblDescripcion.Size = new Size(75, 15);
+            lblDescripcion.Size = new Size(78, 15);
             lblDescripcion.TabIndex = 16;
             lblDescripcion.Text = "Descripcion: ";
             // 
             // lblCosto
             // 
             lblCosto.AutoSize = true;
-            lblCosto.Location = new Point(49, 226);
+            lblCosto.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblCosto.Location = new Point(11, 243);
             lblCosto.Name = "lblCosto";
-            lblCosto.Size = new Size(63, 15);
+            lblCosto.Size = new Size(64, 15);
             lblCosto.TabIndex = 15;
             lblCosto.Text = "* Costo($):";
             // 
             // lblNombre
             // 
             lblNombre.AutoSize = true;
-            lblNombre.Location = new Point(49, 113);
+            lblNombre.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lblNombre.Location = new Point(12, 102);
             lblNombre.Name = "lblNombre";
-            lblNombre.Size = new Size(121, 15);
+            lblNombre.Size = new Size(127, 15);
             lblNombre.TabIndex = 14;
             lblNombre.Text = "* Nombre de servicio:";
             // 
             // lblTitulo
             // 
             lblTitulo.AutoSize = true;
-            lblTitulo.Location = new Point(49, 48);
+            lblTitulo.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitulo.Location = new Point(89, 48);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(38, 15);
+            lblTitulo.Size = new Size(97, 17);
             lblTitulo.TabIndex = 13;
-            lblTitulo.Text = "label1";
+            lblTitulo.Text = "Editar Servicio";
             // 
             // epServicio
             // 
             epServicio.ContainerControl = this;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(11, 373);
+            label1.Name = "label1";
+            label1.Size = new Size(49, 15);
+            label1.TabIndex = 26;
+            label1.Text = "Estado: ";
+            // 
             // EditarServicioForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(398, 597);
+            ClientSize = new Size(282, 494);
+            Controls.Add(label1);
             Controls.Add(lblError);
             Controls.Add(numDuracion);
             Controls.Add(txtDescripcion);
@@ -204,5 +225,6 @@
         private Label lblNombre;
         private Label lblTitulo;
         private ErrorProvider epServicio;
+        private Label label1;
     }
 }

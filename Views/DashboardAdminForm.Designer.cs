@@ -63,26 +63,30 @@
             // 
             // btnCerrarSesion
             // 
+            btnCerrarSesion.BackColor = SystemColors.InactiveCaption;
+            btnCerrarSesion.FlatStyle = FlatStyle.Flat;
+            btnCerrarSesion.ForeColor = SystemColors.ControlText;
             btnCerrarSesion.Location = new Point(682, 35);
             btnCerrarSesion.Name = "btnCerrarSesion";
             btnCerrarSesion.Size = new Size(89, 27);
             btnCerrarSesion.TabIndex = 2;
             btnCerrarSesion.Text = "Cerrar Sesion";
-            btnCerrarSesion.UseVisualStyleBackColor = true;
+            btnCerrarSesion.UseVisualStyleBackColor = false;
             btnCerrarSesion.Click += btnCerrarSesion_Click;
             // 
             // pnlMenu
             // 
             pnlMenu.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            pnlMenu.BackColor = Color.LightSteelBlue;
             pnlMenu.Controls.Add(pictureBox3);
             pnlMenu.Controls.Add(lkServicios);
             pnlMenu.Controls.Add(lkReportes);
             pnlMenu.Controls.Add(lkMedicos);
             pnlMenu.Controls.Add(lkUsuarios);
             pnlMenu.Controls.Add(lblRol);
-            pnlMenu.Location = new Point(0, 0);
+            pnlMenu.Location = new Point(0, 1);
             pnlMenu.Name = "pnlMenu";
-            pnlMenu.Size = new Size(180, 461);
+            pnlMenu.Size = new Size(192, 461);
             pnlMenu.TabIndex = 3;
             // 
             // pictureBox3
@@ -98,6 +102,7 @@
             // lkServicios
             // 
             lkServicios.AutoSize = true;
+            lkServicios.LinkColor = Color.DimGray;
             lkServicios.Location = new Point(51, 293);
             lkServicios.Name = "lkServicios";
             lkServicios.Size = new Size(103, 15);
@@ -108,6 +113,7 @@
             // lkReportes
             // 
             lkReportes.AutoSize = true;
+            lkReportes.LinkColor = Color.DimGray;
             lkReportes.Location = new Point(51, 359);
             lkReportes.Name = "lkReportes";
             lkReportes.Size = new Size(117, 15);
@@ -118,6 +124,7 @@
             // lkMedicos
             // 
             lkMedicos.AutoSize = true;
+            lkMedicos.LinkColor = Color.DimGray;
             lkMedicos.Location = new Point(20, 232);
             lkMedicos.Name = "lkMedicos";
             lkMedicos.Size = new Size(148, 15);
@@ -129,7 +136,8 @@
             // 
             lkUsuarios.AutoSize = true;
             lkUsuarios.Cursor = Cursors.Hand;
-            lkUsuarios.Location = new Point(51, 162);
+            lkUsuarios.LinkColor = Color.DimGray;
+            lkUsuarios.Location = new Point(50, 179);
             lkUsuarios.Name = "lkUsuarios";
             lkUsuarios.Size = new Size(105, 15);
             lkUsuarios.TabIndex = 8;
