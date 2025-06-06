@@ -320,6 +320,7 @@ namespace SistemaDeCitasMordagiss.Views.Secretaria
             btnAgregarHorarioDia.Enabled = habilitar;
         }
 
+
         private void BtnActualizarHorarioSeleccionado_Click(object sender, EventArgs e)
         {
             if (_horarioSeleccionadoParaEdicion == null)

@@ -7,6 +7,7 @@ using SistemaDeCitasMordagiss.DataAccess;
 using SistemaDeCitasMordagiss.Models;
 using SistemaDeCitasMordagiss.Views.Admin;
 using SistemaDeCitasMordagiss.Servicios;
+using System.Globalization;
 
 namespace SistemaDeCitasMordagiss.Views.Secretaria
 {
@@ -290,25 +291,35 @@ namespace SistemaDeCitasMordagiss.Views.Secretaria
         }
 
 
+        // En AgendarNuevaCitaForm.cs
         private void DtpFechaCita_ValueChanged(object sender, EventArgs e)
         {
-            // Verificando que haya un medico seleccionado
+            // Verificaciones iniciales
             if (_idMedicoSeleccionado <= 0)
             {
                 _ep.SetError(dtpFechaCita, "Selecciona primero un medico");
                 return;
             }
+            if (_idServicioSeleccionado <= 0)
+            {
+                _ep.SetError(dtpFechaCita, "Selecciona primero un servicio");
+                return;
+            }
             _ep.SetError(dtpFechaCita, "");
 
+          
             DateTime fecha = dtpFechaCita.Value.Date;
             lblSinDisponibilidad.Visible = false;
+            cmbHoraDisponible.DataSource = null; // Limpiar DataSource para evitar errores
             cmbHoraDisponible.Items.Clear();
             cmbHoraDisponible.Enabled = false;
             btnAgendarCita.Enabled = false;
 
-            string diaSemana = fecha.DayOfWeek.ToString();
-
+           
+            var culturaEs = new CultureInfo("es-ES");
+            string diaSemana = culturaEs.TextInfo.ToTitleCase(fecha.ToString("dddd", culturaEs));
           
+
             List<HorarioProfesionalMedico> franjas =
                 _horarioRepo.TraerHorariosPorProfesional(_idMedicoSeleccionado)
                             .Where(h =>
@@ -318,41 +329,65 @@ namespace SistemaDeCitasMordagiss.Views.Secretaria
             if (franjas.Count == 0)
             {
                 lblSinDisponibilidad.ForeColor = Color.Red;
-                lblSinDisponibilidad.Text =
-                    $"El medico no tiene horario para {fecha:dddd, dd/MM/yyyy}.";
+                lblSinDisponibilidad.Text = $"El medico no tiene horario para el dia {diaSemana}.";
                 lblSinDisponibilidad.Visible = true;
                 _ep.SetError(dtpFechaCita, "Este medico no trabaja ese dia");
                 return;
             }
 
-            //obtiene todas las citas existente para ese Medico
+            var servicioSeleccionado = _servicioRepo.TraerTodos().FirstOrDefault(s => s.IdServicio == _idServicioSeleccionado);
+            if (servicioSeleccionado == null)
+            {
+                lblSinDisponibilidad.Text = "Error: No se pudo encontrar la duracion del servicio seleccionado.";
+                lblSinDisponibilidad.Visible = true;
+                return;
+            }
+            TimeSpan duracionTurno = TimeSpan.FromMinutes(servicioSeleccionado.DuracionEstimadaMin);
+           
+            // Obtiene todas las citas existentes para ese medico en esa fecha
             List<Cita> citasExistentes =
-                _citaRepo.TraerCitasPorProfesionalYFecha(_idMedicoSeleccionado, fecha);
+                _citaRepo.TraerCitasCompletasPorProfesionalYFecha(_idMedicoSeleccionado, fecha);
 
-            // Generando lista de horas libres (turnos de 30 min)
             var horasLibres = new List<string>();
-            TimeSpan duracionTurno = TimeSpan.FromMinutes(30);
 
             foreach (var franja in franjas)
             {
-              
                 TimeSpan inicio = TimeSpan.Parse(franja.HoraInicioTrabajo);
                 TimeSpan fin = TimeSpan.Parse(franja.HoraFinTrabajo);
+                TimeSpan slotActual = inicio;
 
-                for (var h = inicio; h + duracionTurno <= fin; h += duracionTurno)
+               
+                while (slotActual.Add(duracionTurno) <= fin)
                 {
-                    string horaStr = h.ToString(@"hh\:mm");
-                    bool ocupado = citasExistentes.Any(c => c.HoraInicio == horaStr);
+                    TimeSpan slotFin = slotActual.Add(duracionTurno);
+                    bool ocupado = citasExistentes.Any(c => {
+                        TimeSpan inicioCitaExistente = TimeSpan.Parse(c.HoraInicio);
+                        TimeSpan finCitaExistente = TimeSpan.Parse(c.HoraFin);
+                    
+                        return slotActual < finCitaExistente && slotFin > inicioCitaExistente;
+                    });
+
                     if (!ocupado)
-                        horasLibres.Add(horaStr);
+                    {
+                     
+                        if (fecha.Date == DateTime.Today && slotActual <= DateTime.Now.TimeOfDay)
+                        {
+                          
+                        }
+                        else
+                        {
+                            horasLibres.Add(slotActual.ToString(@"hh\:mm"));
+                        }
+                    }
+                  
+                    slotActual = slotActual.Add(TimeSpan.FromMinutes(15));
                 }
             }
 
             if (horasLibres.Count == 0)
             {
                 lblSinDisponibilidad.ForeColor = Color.Red;
-                lblSinDisponibilidad.Text =
-                    $"No hay horarios disponibles para {cmbMedico.Text} en {fecha:dd/MM/yyyy}.";
+                lblSinDisponibilidad.Text = $"No hay horarios disponibles para {cmbMedico.Text} en {fecha:dd/MM/yyyy}.";
                 lblSinDisponibilidad.Visible = true;
                 _ep.SetError(dtpFechaCita, "Este medico no tiene horas libres en la fecha seleccionada");
             }
@@ -371,7 +406,7 @@ namespace SistemaDeCitasMordagiss.Views.Secretaria
             bool formularioValido = true;
             _ep.Clear();
 
-            // — validaciones previas —
+          //validacione necesarias 
             if (_pacienteSeleccionado == null)
             {
                 MessageBox.Show("Debes buscar y seleccionar un paciente primero.", "Error",
