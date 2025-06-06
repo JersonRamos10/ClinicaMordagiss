@@ -13,7 +13,7 @@ using System.Globalization;
 
 namespace SistemaDeCitasMordagiss.Views.Secretaria
 {
-    public partial class UcGestionarHorariosMedico: UserControl
+    public partial class UcGestionarHorariosMedico : UserControl
     {
         private readonly MedicoRepo _medicoRepo;
         private readonly HorarioRepo _horarioRepo;
@@ -40,6 +40,7 @@ namespace SistemaDeCitasMordagiss.Views.Secretaria
             btnEliminarHorarioSeleccionado.Click += BtnEliminarHorarioSeleccionado_Click;
         }
 
+      
         private void ConfigurarControles()
         {
             cmbAccionHorario.Items.Clear();
@@ -48,7 +49,7 @@ namespace SistemaDeCitasMordagiss.Views.Secretaria
             cmbAccionHorario.Items.Add("Ver y Modificar Horarios Existentes");
             cmbAccionHorario.SelectedIndex = 0;
             cmbAccionHorario.Enabled = false;
-            lblSeleccioneAccion.Enabled = false; 
+            lblSeleccioneAccion.Enabled = false;
 
             pnlAgregarHorario.Visible = false;
             pnlVerModificarHorarios.Visible = false;
@@ -80,37 +81,14 @@ namespace SistemaDeCitasMordagiss.Views.Secretaria
             dgvHorariosProfesional.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvHorariosProfesional.MultiSelect = false;
             dgvHorariosProfesional.AllowUserToAddRows = false;
-
-            dgvHorariosProfesional.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                Name = "IdHorarioCol",
-                DataPropertyName = "IdHorario",
-                HeaderText = "ID",
-                Visible = false
-            });
-            dgvHorariosProfesional.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                Name = "DiaSemanaCol",
-                DataPropertyName = "DiaSemana",
-                HeaderText = "Dia de la Semana",
-                FillWeight = 40
-            });
-            dgvHorariosProfesional.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                Name = "HoraInicioCol",
-                DataPropertyName = "HoraInicioTrabajo",
-                HeaderText = "Hora Inicio",
-                FillWeight = 30
-            });
-            dgvHorariosProfesional.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                Name = "HoraFinCol",
-                DataPropertyName = "HoraFinTrabajo",
-                HeaderText = "Hora Fin",
-                FillWeight = 30
-            });
             dgvHorariosProfesional.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            dgvHorariosProfesional.Columns.Add(new DataGridViewTextBoxColumn { Name = "IdHorarioCol", DataPropertyName = "IdHorario", HeaderText = "ID", Visible = false });
+            dgvHorariosProfesional.Columns.Add(new DataGridViewTextBoxColumn { Name = "DiaSemanaCol", DataPropertyName = "DiaSemana", HeaderText = "Dia de la Semana", FillWeight = 40 });
+            dgvHorariosProfesional.Columns.Add(new DataGridViewTextBoxColumn { Name = "HoraInicioCol", DataPropertyName = "HoraInicioTrabajo", HeaderText = "Hora Inicio", FillWeight = 30 });
+            dgvHorariosProfesional.Columns.Add(new DataGridViewTextBoxColumn { Name = "HoraFinCol", DataPropertyName = "HoraFinTrabajo", HeaderText = "Hora Fin", FillWeight = 30 });
         }
+
 
         private void PoblarProfesionales()
         {
@@ -119,12 +97,10 @@ namespace SistemaDeCitasMordagiss.Views.Secretaria
                 var profesionalesActivos = _medicoRepo.TraerTodos()
                                              .Where(m => m.Activo.Equals("Si", StringComparison.OrdinalIgnoreCase))
                                              .ToList();
-
-                // Crear una lista de objetos para el ComboBox que incluya el ID y un texto descriptivo.
                 var dataSourceProfesionales = profesionalesActivos.Select(p => new
                 {
                     IdProfesional = p.IdProfesionalMedico,
-                    NombreMostrado = $"{p.Nombre} {p.Apellidos}" // Asumiendo que ProfesionalMedico tiene Nombre y Apellidos
+                    NombreMostrado = $"{p.Nombre} {p.Apellidos}"
                 }).ToList();
 
                 cmbProfesionales.DataSource = dataSourceProfesionales;
@@ -138,15 +114,17 @@ namespace SistemaDeCitasMordagiss.Views.Secretaria
             }
         }
 
+
+        
         private void CmbProfesionales_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbProfesionales.SelectedValue is int idProfesionalSeleccionado)
             {
                 lblSeleccioneAccion.Enabled = true;
                 cmbAccionHorario.Enabled = true;
-                cmbAccionHorario.SelectedIndex = 0; // Resetear a "Seleccione una accion..."
+                cmbAccionHorario.SelectedIndex = 0;
                 OcultarPanelesYResetearSubcontroles();
-                CargarHorariosDelProfesionalParaDGV(idProfesionalSeleccionado); // Cargar para el DGV
+                CargarHorariosDelProfesionalParaDGV(idProfesionalSeleccionado);
             }
             else
             {
@@ -176,7 +154,7 @@ namespace SistemaDeCitasMordagiss.Views.Secretaria
             else if (accionSeleccionada == "Ver y Modificar Horarios Existentes")
             {
                 pnlVerModificarHorarios.Visible = true;
-            
+
                 if (dgvHorariosProfesional.DataSource == null && cmbProfesionales.SelectedValue is int idProf)
                 {
                     CargarHorariosDelProfesionalParaDGV(idProf);
@@ -184,6 +162,7 @@ namespace SistemaDeCitasMordagiss.Views.Secretaria
             }
         }
 
+        
         private void OcultarPanelesYResetearSubcontroles()
         {
             pnlAgregarHorario.Visible = false;
@@ -197,22 +176,27 @@ namespace SistemaDeCitasMordagiss.Views.Secretaria
             }
         }
 
+       
+
         private void CargarHorariosDelProfesionalParaDGV(int idProfesional)
         {
             try
             {
                 _horariosDelProfesionalActual = _horarioRepo.TraerHorariosPorProfesional(idProfesional);
-                // Ordenar los horarios por un orden logico de dias de semana
-                var diasOrdenados = new List<string> { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
+
+             
+                var diasOrdenados = new List<string> { "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo" };
+
                 var horariosOrdenados = _horariosDelProfesionalActual
                                         .OrderBy(h => diasOrdenados.IndexOf(h.DiaSemana))
                                         .ToList();
 
+           
                 dgvHorariosProfesional.DataSource = new BindingList<HorarioProfesionalMedico>(horariosOrdenados);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al cargar horarios del profesional: {ex.Message}", "Error de Carga", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error al cargar horarios: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 dgvHorariosProfesional.DataSource = null;
                 _horariosDelProfesionalActual.Clear();
             }
@@ -220,42 +204,20 @@ namespace SistemaDeCitasMordagiss.Views.Secretaria
 
         private void PoblarDiasDisponiblesParaNuevoHorario(int idProfesional)
         {
-            cmbDiaSemanaNuevo.DataSource = null; // Limpiar fuente de datos anterior
+            cmbDiaSemanaNuevo.DataSource = null;
             cmbDiaSemanaNuevo.Items.Clear();
 
-            // Nombres de los dias como se deben guardar en la BD (ingles, segun modelo HorarioProfesionalMedico)
-            var todosLosDiasDB = new List<string> { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
+      
+            var todosLosDias = new List<string> { "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo" };
 
-            // Nombres de los dias para mostrar al usuario
-            var culturaEs = new CultureInfo("es-ES"); // Para nombres de dias en español
-            var diasParaDisplay = todosLosDiasDB.Select(diaDB => new DiaSemanaDisplayItem(
-                culturaEs.DateTimeFormat.GetDayName((DayOfWeek)Enum.Parse(typeof(DayOfWeek), diaDB, true)), // Convierte "Monday" a "lunes", luego capitaliza.
-                diaDB
-            )).ToList();
+            var diasYaConHorario = _horariosDelProfesionalActual.Select(h => h.DiaSemana).ToList();
 
-            
-            foreach (var item in diasParaDisplay)
-            {
-                item.NombreParaMostrar = char.ToUpper(item.NombreParaMostrar[0]) + item.NombreParaMostrar.Substring(1);
-            }
-
-
-            var diasYaConHorario = _horariosDelProfesionalActual.Select(h => h.DiaSemana.ToUpperInvariant()).ToList();
-            var diasDisponibles = new List<DiaSemanaDisplayItem>();
-
-            foreach (var diaItem in diasParaDisplay)
-            {
-                if (!diasYaConHorario.Contains(diaItem.ValorParaGuardar.ToUpperInvariant()))
-                {
-                    diasDisponibles.Add(diaItem);
-                }
-            }
+           
+            var diasDisponibles = todosLosDias.Except(diasYaConHorario, StringComparer.OrdinalIgnoreCase).ToList();
 
             if (diasDisponibles.Any())
             {
                 cmbDiaSemanaNuevo.DataSource = diasDisponibles;
-                cmbDiaSemanaNuevo.DisplayMember = "NombreParaMostrar";
-                cmbDiaSemanaNuevo.ValueMember = "ValorParaGuardar";
                 cmbDiaSemanaNuevo.SelectedIndex = 0;
                 HabilitarControlesPanelAgregar(true);
             }
@@ -267,24 +229,6 @@ namespace SistemaDeCitasMordagiss.Views.Secretaria
             }
         }
 
-        private void HabilitarControlesPanelAgregar(bool habilitar)
-        {
-            dtpHoraInicioNuevo.Enabled = habilitar;
-            dtpHoraFinNuevo.Enabled = habilitar;
-            btnAgregarHorarioDia.Enabled = habilitar;
-        }
-
-        private class DiaSemanaDisplayItem
-        {
-            public string NombreParaMostrar { get; set; }
-            public string ValorParaGuardar { get; set; }
-            public DiaSemanaDisplayItem(string nombre, string valor)
-            {
-                NombreParaMostrar = nombre;
-                ValorParaGuardar = valor;
-            }
-        }
-
         private void BtnAgregarHorarioDia_Click(object sender, EventArgs e)
         {
             if (cmbProfesionales.SelectedValue == null)
@@ -292,16 +236,17 @@ namespace SistemaDeCitasMordagiss.Views.Secretaria
                 MessageBox.Show("Seleccione un profesional.", "Validacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            if (!(cmbDiaSemanaNuevo.SelectedItem is DiaSemanaDisplayItem diaSeleccionadoItem) ||
-                string.IsNullOrEmpty(diaSeleccionadoItem.ValorParaGuardar))
+
+            if (cmbDiaSemanaNuevo.SelectedItem == null)
             {
                 MessageBox.Show("Seleccione un dia valido de la semana.", "Validacion", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            string diaSeleccionado = cmbDiaSemanaNuevo.SelectedItem.ToString();
 
+            // logica de validacion de horas
             DateTime horaInicio = dtpHoraInicioNuevo.Value;
             DateTime horaFin = dtpHoraFinNuevo.Value;
-
             if (horaInicio.TimeOfDay >= horaFin.TimeOfDay)
             {
                 MessageBox.Show("La hora de inicio debe ser anterior a la hora de fin.", "Validacion de Horas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -311,11 +256,12 @@ namespace SistemaDeCitasMordagiss.Views.Secretaria
             var nuevoHorario = new HorarioProfesionalMedico
             {
                 IdProfesionalMedico = (int)cmbProfesionales.SelectedValue,
-                DiaSemana = diaSeleccionadoItem.ValorParaGuardar,
+                DiaSemana = diaSeleccionado, 
                 HoraInicioTrabajo = horaInicio.ToString("HH:mm"),
                 HoraFinTrabajo = horaFin.ToString("HH:mm")
             };
 
+            // logica para llamar al repo y guardar
             try
             {
                 if (_horarioRepo.InsertarHorarioDia(nuevoHorario))
@@ -339,22 +285,14 @@ namespace SistemaDeCitasMordagiss.Views.Secretaria
         {
             if (dgvHorariosProfesional.SelectedRows.Count > 0)
             {
+             
                 _horarioSeleccionadoParaEdicion = dgvHorariosProfesional.SelectedRows[0].DataBoundItem as HorarioProfesionalMedico;
+
                 if (_horarioSeleccionadoParaEdicion != null)
                 {
                     grpEditarHorarioSeleccionado.Enabled = true;
-
-                
-                    string diaParaMostrar = _horarioSeleccionadoParaEdicion.DiaSemana;
-                    try
-                    {
-                        var culturaEs = new CultureInfo("es-ES");
-                        var diaEnum = (DayOfWeek)Enum.Parse(typeof(DayOfWeek), _horarioSeleccionadoParaEdicion.DiaSemana, true);
-                        diaParaMostrar = culturaEs.DateTimeFormat.GetDayName(diaEnum);
-                        diaParaMostrar = char.ToUpper(diaParaMostrar[0]) + diaParaMostrar.Substring(1);
-                    }
-                    catch { }
-                    lblDiaSeleccionadoEdicion.Text = $"Dia: {diaParaMostrar}";
+            
+                    lblDiaSeleccionadoEdicion.Text = $"Dia: {_horarioSeleccionadoParaEdicion.DiaSemana}";
 
                     if (TimeSpan.TryParse(_horarioSeleccionadoParaEdicion.HoraInicioTrabajo, out TimeSpan inicio))
                     {
@@ -372,6 +310,14 @@ namespace SistemaDeCitasMordagiss.Views.Secretaria
                 _horarioSeleccionadoParaEdicion = null;
                 lblDiaSeleccionadoEdicion.Text = "Dia: (Ninguno seleccionado)";
             }
+        }
+
+       
+        private void HabilitarControlesPanelAgregar(bool habilitar)
+        {
+            dtpHoraInicioNuevo.Enabled = habilitar;
+            dtpHoraFinNuevo.Enabled = habilitar;
+            btnAgregarHorarioDia.Enabled = habilitar;
         }
 
         private void BtnActualizarHorarioSeleccionado_Click(object sender, EventArgs e)

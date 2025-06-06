@@ -34,6 +34,7 @@
             dgvPacientes = new DataGridView();
             lblPacienteSeleccionado = new Label();
             btnAbrirAgendarForm = new Button();
+            label3 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvPacientes).BeginInit();
             SuspendLayout();
             // 
@@ -101,11 +102,22 @@
             btnAbrirAgendarForm.Text = "Agendar Cita";
             btnAbrirAgendarForm.UseVisualStyleBackColor = false;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(303, 172);
+            label3.Name = "label3";
+            label3.Size = new Size(209, 17);
+            label3.TabIndex = 12;
+            label3.Text = "Seleccionar una Fila de la Tabla :";
+            // 
             // UcAgendarCita
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
+            Controls.Add(label3);
             Controls.Add(btnAbrirAgendarForm);
             Controls.Add(lblPacienteSeleccionado);
             Controls.Add(dgvPacientes);
@@ -127,5 +139,6 @@
         private DataGridView dgvPacientes;
         private Label lblPacienteSeleccionado;
         private Button btnAbrirAgendarForm;
+        private Label label3;
     }
 }

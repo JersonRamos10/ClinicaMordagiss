@@ -33,13 +33,6 @@
             cmbAccionHorario = new ComboBox();
             label1 = new Label();
             pnlAgregarHorario = new Panel();
-            btnAgregarHorarioDia = new Button();
-            label3 = new Label();
-            dtpHoraFinNuevo = new DateTimePicker();
-            label2 = new Label();
-            dtpHoraInicioNuevo = new DateTimePicker();
-            lblDiaSemanaNuevo = new Label();
-            cmbDiaSemanaNuevo = new ComboBox();
             pnlVerModificarHorarios = new Panel();
             dgvHorariosProfesional = new DataGridView();
             lblSeleccioneAccion = new Label();
@@ -51,6 +44,13 @@
             dtpHoraFinEdicion = new DateTimePicker();
             btnActualizarHorarioSeleccionado = new Button();
             lblHoraFinEdicion = new Label();
+            btnAgregarHorarioDia = new Button();
+            label3 = new Label();
+            dtpHoraFinNuevo = new DateTimePicker();
+            label2 = new Label();
+            dtpHoraInicioNuevo = new DateTimePicker();
+            lblDiaSemanaNuevo = new Label();
+            cmbDiaSemanaNuevo = new ComboBox();
             pnlAgregarHorario.SuspendLayout();
             pnlVerModificarHorarios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvHorariosProfesional).BeginInit();
@@ -97,7 +97,6 @@
             // 
             // pnlAgregarHorario
             // 
-            pnlAgregarHorario.Controls.Add(pnlVerModificarHorarios);
             pnlAgregarHorario.Controls.Add(btnAgregarHorarioDia);
             pnlAgregarHorario.Controls.Add(label3);
             pnlAgregarHorario.Controls.Add(dtpHoraFinNuevo);
@@ -110,80 +109,13 @@
             pnlAgregarHorario.Size = new Size(462, 260);
             pnlAgregarHorario.TabIndex = 6;
             // 
-            // btnAgregarHorarioDia
-            // 
-            btnAgregarHorarioDia.BackColor = SystemColors.HotTrack;
-            btnAgregarHorarioDia.FlatStyle = FlatStyle.Flat;
-            btnAgregarHorarioDia.ForeColor = SystemColors.ControlLightLight;
-            btnAgregarHorarioDia.Location = new Point(321, 206);
-            btnAgregarHorarioDia.Name = "btnAgregarHorarioDia";
-            btnAgregarHorarioDia.Size = new Size(82, 29);
-            btnAgregarHorarioDia.TabIndex = 12;
-            btnAgregarHorarioDia.Text = "Agregar Horario";
-            btnAgregarHorarioDia.UseVisualStyleBackColor = false;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(28, 143);
-            label3.Name = "label3";
-            label3.Size = new Size(56, 15);
-            label3.TabIndex = 11;
-            label3.Text = "Hora Fin:";
-            // 
-            // dtpHoraFinNuevo
-            // 
-            dtpHoraFinNuevo.Format = DateTimePickerFormat.Time;
-            dtpHoraFinNuevo.Location = new Point(28, 161);
-            dtpHoraFinNuevo.Name = "dtpHoraFinNuevo";
-            dtpHoraFinNuevo.Size = new Size(300, 23);
-            dtpHoraFinNuevo.TabIndex = 10;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(28, 84);
-            label2.Name = "label2";
-            label2.Size = new Size(70, 15);
-            label2.TabIndex = 9;
-            label2.Text = "Hora Inicio:";
-            // 
-            // dtpHoraInicioNuevo
-            // 
-            dtpHoraInicioNuevo.Format = DateTimePickerFormat.Time;
-            dtpHoraInicioNuevo.Location = new Point(28, 102);
-            dtpHoraInicioNuevo.Name = "dtpHoraInicioNuevo";
-            dtpHoraInicioNuevo.Size = new Size(300, 23);
-            dtpHoraInicioNuevo.TabIndex = 8;
-            // 
-            // lblDiaSemanaNuevo
-            // 
-            lblDiaSemanaNuevo.AutoSize = true;
-            lblDiaSemanaNuevo.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblDiaSemanaNuevo.Location = new Point(28, 14);
-            lblDiaSemanaNuevo.Name = "lblDiaSemanaNuevo";
-            lblDiaSemanaNuevo.Size = new Size(104, 15);
-            lblDiaSemanaNuevo.TabIndex = 7;
-            lblDiaSemanaNuevo.Text = "Dia de la Semana:";
-            // 
-            // cmbDiaSemanaNuevo
-            // 
-            cmbDiaSemanaNuevo.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbDiaSemanaNuevo.FormattingEnabled = true;
-            cmbDiaSemanaNuevo.Location = new Point(28, 45);
-            cmbDiaSemanaNuevo.Name = "cmbDiaSemanaNuevo";
-            cmbDiaSemanaNuevo.Size = new Size(300, 23);
-            cmbDiaSemanaNuevo.TabIndex = 7;
-            // 
             // pnlVerModificarHorarios
             // 
             pnlVerModificarHorarios.Controls.Add(dgvHorariosProfesional);
             pnlVerModificarHorarios.Controls.Add(lblSeleccioneAccion);
             pnlVerModificarHorarios.Controls.Add(lblDiaSeleccionadoEdicion);
             pnlVerModificarHorarios.Controls.Add(grpEditarHorarioSeleccionado);
-            pnlVerModificarHorarios.Location = new Point(0, 0);
+            pnlVerModificarHorarios.Location = new Point(293, 160);
             pnlVerModificarHorarios.Name = "pnlVerModificarHorarios";
             pnlVerModificarHorarios.Size = new Size(462, 395);
             pnlVerModificarHorarios.TabIndex = 13;
@@ -292,11 +224,79 @@
             lblHoraFinEdicion.TabIndex = 11;
             lblHoraFinEdicion.Text = "Nueva Hora Fin:";
             // 
+            // btnAgregarHorarioDia
+            // 
+            btnAgregarHorarioDia.BackColor = SystemColors.HotTrack;
+            btnAgregarHorarioDia.FlatStyle = FlatStyle.Flat;
+            btnAgregarHorarioDia.ForeColor = SystemColors.ControlLightLight;
+            btnAgregarHorarioDia.Location = new Point(321, 206);
+            btnAgregarHorarioDia.Name = "btnAgregarHorarioDia";
+            btnAgregarHorarioDia.Size = new Size(82, 29);
+            btnAgregarHorarioDia.TabIndex = 12;
+            btnAgregarHorarioDia.Text = "Agregar Horario";
+            btnAgregarHorarioDia.UseVisualStyleBackColor = false;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(28, 143);
+            label3.Name = "label3";
+            label3.Size = new Size(56, 15);
+            label3.TabIndex = 11;
+            label3.Text = "Hora Fin:";
+            // 
+            // dtpHoraFinNuevo
+            // 
+            dtpHoraFinNuevo.Format = DateTimePickerFormat.Time;
+            dtpHoraFinNuevo.Location = new Point(28, 161);
+            dtpHoraFinNuevo.Name = "dtpHoraFinNuevo";
+            dtpHoraFinNuevo.Size = new Size(300, 23);
+            dtpHoraFinNuevo.TabIndex = 10;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(28, 84);
+            label2.Name = "label2";
+            label2.Size = new Size(70, 15);
+            label2.TabIndex = 9;
+            label2.Text = "Hora Inicio:";
+            // 
+            // dtpHoraInicioNuevo
+            // 
+            dtpHoraInicioNuevo.Format = DateTimePickerFormat.Time;
+            dtpHoraInicioNuevo.Location = new Point(28, 102);
+            dtpHoraInicioNuevo.Name = "dtpHoraInicioNuevo";
+            dtpHoraInicioNuevo.Size = new Size(300, 23);
+            dtpHoraInicioNuevo.TabIndex = 8;
+            // 
+            // lblDiaSemanaNuevo
+            // 
+            lblDiaSemanaNuevo.AutoSize = true;
+            lblDiaSemanaNuevo.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDiaSemanaNuevo.Location = new Point(28, 14);
+            lblDiaSemanaNuevo.Name = "lblDiaSemanaNuevo";
+            lblDiaSemanaNuevo.Size = new Size(104, 15);
+            lblDiaSemanaNuevo.TabIndex = 7;
+            lblDiaSemanaNuevo.Text = "Dia de la Semana:";
+            // 
+            // cmbDiaSemanaNuevo
+            // 
+            cmbDiaSemanaNuevo.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbDiaSemanaNuevo.FormattingEnabled = true;
+            cmbDiaSemanaNuevo.Location = new Point(28, 45);
+            cmbDiaSemanaNuevo.Name = "cmbDiaSemanaNuevo";
+            cmbDiaSemanaNuevo.Size = new Size(300, 23);
+            cmbDiaSemanaNuevo.TabIndex = 7;
+            // 
             // UcGestionarHorariosMedico
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlLightLight;
+            Controls.Add(pnlVerModificarHorarios);
             Controls.Add(pnlAgregarHorario);
             Controls.Add(cmbAccionHorario);
             Controls.Add(label1);
