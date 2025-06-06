@@ -1,4 +1,4 @@
-## Credemciales 
+## Credenciales 
 ### valdidas para probar las vistas: 
 
 - vista Administrador --> usuario: admin contraseña: admin123
